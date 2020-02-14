@@ -2,12 +2,13 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
+# credits to @AvinashReddy3108
 #
 """
 This module updates the userbot based on Upstream revision
 """
 
-from os import remove, execle, path, makedirs, getenv
+from os import remove, execle, path, makedirs, getenv, environ
 from shutil import rmtree
 import asyncio
 import sys
@@ -15,7 +16,7 @@ import sys
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from userbot import CMD_HELP, bot, HEROKU_APIKEY, HEROKU_APPNAME, UPSTREAM_REPO_URL
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, HEROKU_APIKEY, HEROKU_APPNAME, UPSTREAM_REPO_URL
 from userbot.events import register
 
 requirements_path = path.join(
@@ -27,10 +28,16 @@ async def gen_chlog(repo, diff):
     d_form = "%d/%m/%y"
     for c in repo.iter_commits(diff):
         ch_log += f'•[{c.committed_datetime.strftime(d_form)}]: {c.summary} <{c.author}>\n'
+
     return ch_log
 
 
-async def update_requirements():
+async def is_off_br(br):
+#    off_br = ['sql-extended']
+#    for k in off_br:
+#        if k == br:
+#            return 1
+#    return
     reqs = str(requirements_path)
     try:
         process = await asyncio.create_subprocess_shell(
@@ -43,7 +50,8 @@ async def update_requirements():
         return repr(e)
 
 
-@register(outgoing=True, pattern="^.update(?: |$)(.*)")
+#@register(outgoing=True, pattern="^.update(?: |$)(.*)")
+@register(outgoing=True, pattern="^\.update(?: |$)(.*)")
 async def upstream(ups):
     "For .update command, check if the bot is up to date, update if specified"
     await ups.edit("`Checking for updates, please wait....`")
@@ -71,15 +79,22 @@ async def upstream(ups):
             )
             return
         repo = Repo.init()
+ #       await ups.edit(
+ #           "`Warning: Force-Syncing to the latest stable code from repo.`\
+ #           \nI may lose my downloaded files during this update."
+ #       )
         origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
+ #       repo.create_head('sql-extended', origin.refs.master)
+ #       repo.heads.master.checkout(True)
         force_update = True
-        repo.create_head('master', origin.refs.master)
-        repo.heads.master.set_tracking_branch(origin.refs.master)
-        repo.heads.master.checkout(True)
+        repo.create_head('sql-extended', origin.refs.sql-extended)
+        repo.heads.sql-extended.set_tracking_branch(origin.refs.sql-extended)
+        repo.heads.sql-extended.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != 'master':
+#    if not await is_off_br(ac_br):
+    if ac_br != 'sql-extended':
         await ups.edit(
             f'**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). '
             'in that case, Updater is unable to identify '
@@ -89,13 +104,13 @@ async def upstream(ups):
         return
 
     try:
+
         repo.create_remote('upstream', off_repo)
     except BaseException:
         pass
 
     ups_rem = repo.remote('upstream')
     ups_rem.fetch(ac_br)
-
     changelog = await gen_chlog(repo, f'HEAD..upstream/{ac_br}')
 
     if not changelog and not force_update:
@@ -116,10 +131,11 @@ async def upstream(ups):
                 "output.txt",
                 reply_to=ups.id,
             )
+  
             remove("output.txt")
         else:
             await ups.edit(changelog_str)
-        await ups.respond('`do \".update now\" to update`')
+        await ups.respond('`do \".update now\" to update**\n Deploy manually if using heroku`')
         return
 
     if force_update:
@@ -162,7 +178,7 @@ async def upstream(ups):
         else:
             remote = repo.create_remote("heroku", heroku_git_url)
         try:
-            remote.push(refspec="HEAD:refs/heads/master", force=True)
+            remote.push(refspec="HEAD:refs/heads/sql-extended", force=True)
         except GitCommandError as error:
             await ups.edit(f'{txt}\n`Here is the error log:\n{error}`')
             repo.__del__()
@@ -176,13 +192,12 @@ async def upstream(ups):
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
         reqs_upgrade = await update_requirements()
-        await ups.edit('`Successfully Updated!\n'
+        msg  = await ups.edit('`Successfully Updated!\n'
                        'Bot is restarting... Wait for a second!`')
         # Spin a new instance of bot
         args = [sys.executable, "-m", "userbot"]
-        execle(sys.executable, *args, os.environ)
+        execle(sys.executable, *args, environ)
         return
-
 
 CMD_HELP.update({
     'update':
