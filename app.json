@@ -1,7 +1,7 @@
 {
-  "name": "Telegram User Bot",
-  "description": "[Paperplane Extended] A modular Telegram userbot running on Python 3.6+ with an sqlalchemy database.",
-  "logo": "https://i.imgur.com/ATSG4w3.png",
+  "name": "Reina Test Bot",
+  "description": "[Kang by Reina] A modular Telegram userbot running on Python 3.6+ with an sqlalchemy database.",
+  "logo": "https://photos.app.goo.gl/F91WY4UKb54DGV1Z6",
   "keywords": [
     "telegram",
     "userbot",
@@ -9,9 +9,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/AvinashReddy3108/PaperplaneExtended",
+  "repository": "https://github.com/Reinazhard/ubotreina",
   "website": "https://telegra.ph/How-to-host-a-Telegram-Userbot-07-24",
-  "success_url": "https://t.me/PaperplaneExtended",
+  "success_url": "https://t.me/eve_enryu",
   "env": {
     "API_KEY": {
       "description": "Get this value from my.telegram.org.",
