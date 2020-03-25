@@ -88,13 +88,13 @@ async def upstream(ups):
  #       repo.create_head('sql-extended', origin.refs.master)
  #       repo.heads.master.checkout(True)
         force_update = True
-        repo.create_head('sql-extended', origin.refs.sql-extended)
-        repo.heads.sql-extended.set_tracking_branch(origin.refs.sql-extended)
+        repo.create_head('sql-extended', origin.refs.master)
+        repo.heads.sql-extended.set_tracking_branch(origin.refs.master)
         repo.heads.sql-extended.checkout(True)
 
     ac_br = repo.active_branch.name
 #    if not await is_off_br(ac_br):
-    if ac_br != 'sql-extended':
+    if ac_br != 'master':
         await ups.edit(
             f'**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). '
             'in that case, Updater is unable to identify '
