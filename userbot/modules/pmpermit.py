@@ -278,7 +278,7 @@ async def unblockpm(unblock):
         )
 
 
-add_help_item(
+CMD_HELP.update(
     "pmpermit",
     "Me",
     "Multiple commands related to the approval of private messages.",
