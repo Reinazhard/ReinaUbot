@@ -10,6 +10,7 @@ from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
 from sqlalchemy.exc import IntegrityError
 
+from ..help import add_help_item
 from userbot import (COUNT_PM, BOTLOG, BOTLOG_CHATID, PM_AUTO_BAN,
                      LASTMSG, LOGS)
 
@@ -277,14 +278,14 @@ async def unblockpm(unblock):
         )
 
 
-CMD_HELP.update(
+CMD_HELP.update({
     "pmpermit",
     "Me",
     "Multiple commands related to the approval of private messages.",
     """
     `.approve`
     **Usage:** Approves the mentioned/replied person to PM.
-    
+
     `.disapprove`
     **Usage:** Disapproves the mentioned/replied person to PM.
 
@@ -300,4 +301,4 @@ CMD_HELP.update(
     `.notifon`
     **Usage:** Allows notifications for unapproved PMs.
     """
-)
+})
