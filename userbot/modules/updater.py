@@ -89,8 +89,8 @@ async def upstream(ups):
  #       repo.heads.master.checkout(True)
         force_update = True
         repo.create_head('sql-extended', origin.refs.master)
-        repo.heads.sql-extended.set_tracking_branch(origin.refs.master)
-        repo.heads.sql-extended.checkout(True)
+        repo.heads.master.set_tracking_branch(origin.refs.master)
+        repo.heads.master.checkout(True)
 
     ac_br = repo.active_branch.name
 #    if not await is_off_br(ac_br):
