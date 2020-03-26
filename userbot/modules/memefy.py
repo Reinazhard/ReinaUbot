@@ -9,14 +9,14 @@ import requests
 import asyncio
 
 from userbot.modules.misc.upload_download import humanbytes
-from userbot import (TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, bot)
+from userbot import TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, bot
 from userbot.events import register
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon.tl.types import (DocumentAttributeSticker,
+from telethon.tl.types import DocumentAttributeSticker,
                                InputMediaUploadedDocument, InputPeerNotifySettings,
                                InputStickerSetID, InputStickerSetShortName,
-                               MessageMediaPhoto)
+                               MessageMediaPhoto
 
 
 @register(outgoing=True, pattern="^\.mmf(?: |$)(.*)")
