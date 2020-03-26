@@ -6,7 +6,7 @@
 <p align="center">&nbsp;</p>
 <h2 align="center">How To Host</h2>
 <h5 align="center">This is way to cheat</h5>
-<p align="center"><a href="https://heroku.com/deploy"> <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fid.wikipedia.org%2Fwiki%2FReynhard_Sinaga&psig=AOvVaw1--gagJ80CgqBfgimJuSJp&ust=1585298833059000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPCNvMDgt-gCFQAAAAAdAAAAABAD"></a></p>
+<p align="center"><a href="https://heroku.com/deploy"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Reynhard_Sinaga.jpg/220px-Reynhard_Sinaga.jpg"></a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Credits</h2>
 <p align="center">Huge thanks to <a href="https://github.com/Spyderzz/Userbot/graphs/contributors">everyone && yincen17 && azrim</a> who have helped make this userbot awesome!!</p>
