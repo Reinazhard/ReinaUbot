@@ -6,9 +6,13 @@
 """ Userbot module containing commands related to android"""
 
 import re
+import json
 from requests import get
 from bs4 import BeautifulSoup
 
+from aiohttp import ClientSession
+
+from userbot.utils import fetch
 from userbot import CMD_HELP
 from userbot.events import register
 
@@ -188,34 +192,36 @@ async def twrp(request):
 
 
 @register(outgoing=True, pattern=r"^.ofox(?: |$)(\S*)")
-async def orangefox(request):
-    """ OrangeFox Recovery """
-    textx = await request.get_reply_message()
-    device = request.pattern_match.group(1)
-    if device:
-        pass
-    elif textx:
-        device = textx.text.split(' ')[0]
-    else:
-         await request.edit("`Usage: .ofox <codename>`")
-         return
-    url = get(f'https://files.orangefox.tech/OrangeFox-Stable/{device}/')
-    if url.status_code == 404:
-        reply = f"`Couldn't find OFRP for {device}!`\n"
+async def get_orangefox(device):
+    """
+    fetch latest orangefox links for a device
+    """
+    api_url = "https://api.orangefox.tech"
+    host = "https://files.orangefox.tech"
+    async with ClientSession() as session:
+        try:
+            devices = json.loads(await fetch(session, f'{api_url}/all_codenames/'))
+        except json.decoder.JSONDecodeError:
+            device = None
+        if device not in devices:
+            return
+        downloads = []
+        try:
+            stable = json.loads(await fetch(session, f'{api_url}/last_stable_release/{device}'))
+            downloads.append({f"{stable['file_name']}": f"{host}/" + "/".join(stable['file_path'].split('/')[5:])})
+        except json.decoder.JSONDecodeError:
+            pass
+        try:
+            beta = json.loads(await fetch(session, f'{api_url}/last_beta_release/{device}'))
+            downloads.append({f"{beta['file_name']}": f"{host}/" + "/".join(beta['file_path'].split('/')[5:])})
+        except json.decoder.JSONDecodeError:
+            pass
+        if downloads:
+            info = json.loads(await fetch(session, f'{api_url}/details/{device}'))
+            reply= {'name': info['fullname'], 'maintainer': info['maintainer'], 'downloads': downloads}ync def orangefox(request):
         await request.edit(reply)
-        return
-    page = BeautifulSoup(url.content, 'lxml')
-    download = page.find('table').find('tr').find('a')
-    dl_link = f"https://files.orangefox.tech/OrangeFox-Stable/{download['href']}"
-    dl_file = download.text
-    size = page.find("span", {"class": "filesize"}).text
-    date = page.find("em").text.strip()
-    reply = f'**Latest Ofox for {device}:**\n' \
-        f'[{dl_file}]({dl_link}) - __{size}__\n' \
-        f'**Updated:** __{date}__\n'
-    await request.edit(reply)
 
-    
+
 CMD_HELP.update({
     "android":
     ".magisk\
