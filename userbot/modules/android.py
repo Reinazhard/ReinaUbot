@@ -187,7 +187,37 @@ async def twrp(request):
     await request.edit(reply)
 
 
-CMD_HELP.update({
+@register(outgoing=True, pattern=r"^.ofox(?: |$)(\S*)")
+async def orangefox(request):
+    """OrangeFox Recovery"""
+    textx = await request.get_reply_message()
+    device = request.pattern_match.group(1)
+    if device:
+        pass
+    elif textx:
+        device = textx.text.split(' ')[0]
+    else:
+         await request.edit("`Usage: .ofox <codename>`")
+         return
+    url = get(f'https://files.orangefox.tech/OrangeFox-Stable/{device}/')
+    if url.status_code == 404:
+        reply = f"`Couldn't find OFRP for {device}!`\n"
+        await request.edit(reply)
+        return
+    page = BeautifulSoup(url.content, 'lxml')
+    download = page.find('table').find('tr').find('a')
+    dl_link = f"https://files.orangefox.tech/OrangeFox-Stable/{download['href']}"
+    dl_file = download.text
+    size = page.find("span", {"class": "filesize"}).text
+    date = page.find("em").text.strip()
+    reply = f'**Latest Ofox for {device}:**\n' \
+        f'[{dl_file}]({dl_link}) - __{size}__\n' \
+        f'**Updated:** __{date}__\n'
+    await request.edit(reply)
+
+    
+    
+ CMD_HELP.update({
     "android":
     ".magisk\
 \nGet latest Magisk releases\
