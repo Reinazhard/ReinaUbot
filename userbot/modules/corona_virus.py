@@ -5,6 +5,7 @@
 #
 # Port to UserBot by @MoveAngel
 
+from covid import Covid
 from userbot import CMD_HELP
 from userbot.events import register
 
@@ -12,7 +13,7 @@ from userbot.events import register
 async def corona(event):
     covid = Covid()
     data = covid.get_data()
-    input_str = event.pattern_match.group(1)
+    input_str	 = event.pattern_match.group(1)
     country = input_str.capitalize()
     country_data = get_country_data(country, data)
     output_text = "" 
@@ -25,10 +26,10 @@ def get_country_data(country, world):
         if country_data["country"] == country:
             return country_data
     return {"Status": "No information yet about this country!"}
-    
-    
+
+
 CMD_HELP.update({
         "covid": 
         ".covid <country>\
-          \nUsage: Get an information about data covid-19 in your country.\n"
+          \nUsage: Get an information about data covid-19 in your country."
     })
