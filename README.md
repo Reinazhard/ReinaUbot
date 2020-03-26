@@ -2,7 +2,7 @@
 <h3 align="center">A modular Telegram userbot running on Python 3.6+ with an sqlalchemy database.</h3>
 <h4 align="center">Based on RaphielGang's <a href="https://github.com/MyPaperPlane/Telegram-UserBot">Paperplane</a> Telegram userbot...</h4>
 <h4 align="center">It's modified by Reina <a href="https://t.me/eve_enryu>.</h4>
-<p align="center"><a href="#how-to-host">How To Host</a> | <a href="#credits">Credits</a> | <a href="#license">License</a></p>
+<h5 align="center"><a href="#how-to-host">How To Host</a> | <a href="#credits">Credits</a> | <a href="#license">License</a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">How To Host</h2>
 <h5 align="center">This is way to cheat</h5>
