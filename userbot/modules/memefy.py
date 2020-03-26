@@ -117,10 +117,6 @@ async def silently_send_message(conv, text):
 
 
 CMD_HELP.update({
-    "memefy",
-    "Fun",
-    "Turn images into memes",
-    """
-    `.mmf` texttop ; textbottom
-    """
+    "memefy":
+    ".mmf texttop ; textbottom"
 })
