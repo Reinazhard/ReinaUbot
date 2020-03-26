@@ -14,8 +14,7 @@ from userbot.events import register
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.types import DocumentAttributeSticker,
-                               InputStickerSetID, InputStickerSetShortName,
-                               MessageMediaPhoto
+                               InputStickerSetShortName, MessageMediaPhoto
 
 
 @register(outgoing=True, pattern="^\.mmf(?: |$)(.*)")
