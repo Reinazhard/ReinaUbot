@@ -228,5 +228,7 @@ async def orangefox(request):
 \n\n.specs <brand> <device>\
 \nUsage: Get device specifications info.\
 \n\n.twrp <codename>\
-\nUsage: Get latest twrp download for android device."
+\nUsage: Get latest twrp download for android device.\
+\n\n.ofox <codename>\
+\nUsage: Get Ofox for your device."
 })
