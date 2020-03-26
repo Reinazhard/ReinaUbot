@@ -216,8 +216,7 @@ async def orangefox(request):
     await request.edit(reply)
 
     
-    
- CMD_HELP.update({
+CMD_HELP.update({
     "android":
     ".magisk\
 \nGet latest Magisk releases\
