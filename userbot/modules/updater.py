@@ -2,7 +2,6 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
-# credits to @AvinashReddy3108
 #
 """
 This module updates the userbot based on Upstream revision
@@ -68,19 +67,19 @@ async def upstream(ups):
         if conf != "now":
             await ups.edit(
                 f"`Unfortunately, the directory {error} does not seem to be a git repository.\
-            \nBut we can fix that by force updating the aone-kangbot using .update now.`"
+            \nBut we can fix that by force updating the userbot using .update now.`"
             )
             return
         repo = Repo.init()
         origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
         force_update = True
-        repo.create_head('sql-extended', origin.refs.sql-extended)
-        repo.heads.sql-extended.set_tracking_branch(origin.refs.sql-extended)
-        repo.heads.sql-extended.checkout(True)
+        repo.create_head('master', origin.refs.master)
+        repo.heads.master.set_tracking_branch(origin.refs.master)
+        repo.heads.master.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != 'sql-extended':
+    if ac_br != 'master':
         await ups.edit(
             f'**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). '
             'in that case, Updater is unable to identify '
@@ -125,9 +124,9 @@ async def upstream(ups):
 
     if force_update:
         await ups.edit(
-            '`Force-Syncing to latest stable aone-kangbot code, please wait...`')
+            '`Force-Syncing to latest stable userbot code, please wait...`')
     else:
-        await ups.edit('`Updating aone-kangbot, please wait....`')
+        await ups.edit('`Updating userbot, please wait....`')
     # We're in a Heroku Dyno, handle it's memez.
     if HEROKU_APIKEY is not None:
         import heroku3
@@ -136,7 +135,7 @@ async def upstream(ups):
         heroku_applications = heroku.apps()
         if not HEROKU_APPNAME:
             await ups.edit(
-                '`[HEROKU MEMEZ] Please set up the HEROKU_APPNAME variable to be able to update aone-kangbot.`'
+                '`[HEROKU MEMEZ] Please set up the HEROKU_APPNAME variable to be able to update userbot.`'
             )
             repo.__del__()
             return
@@ -146,12 +145,12 @@ async def upstream(ups):
                 break
         if heroku_app is None:
             await ups.edit(
-                f'{txt}\n`Invalid Heroku credentials for updating aone-kangbot dyno.`'
+                f'{txt}\n`Invalid Heroku credentials for updating userbot dyno.`'
             )
             repo.__del__()
             return
         await ups.edit('`[HEROKU MEMEZ]\
-                        \naone-kangbot dyno build in progress, please wait for it to complete.`'
+                        \nUserbot dyno build in progress, please wait for it to complete.`'
                        )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -163,7 +162,7 @@ async def upstream(ups):
         else:
             remote = repo.create_remote("heroku", heroku_git_url)
         try:
-            remote.push(refspec="HEAD:refs/heads/sql-extended", force=True)
+            remote.push(refspec="HEAD:refs/heads/master", force=True)
         except GitCommandError as error:
             await ups.edit(f'{txt}\n`Here is the error log:\n{error}`')
             repo.__del__()
@@ -178,7 +177,7 @@ async def upstream(ups):
             repo.git.reset("--hard", "FETCH_HEAD")
         reqs_upgrade = await update_requirements()
         await ups.edit('`Successfully Updated!\n'
-                       'Bot is restarting... Wait for a second! and happy kanging`')
+                       'Bot is restarting... Wait for a second!`')
         # Spin a new instance of bot
         args = [sys.executable, "-m", "userbot"]
         execle(sys.executable, *args, environ)
@@ -190,5 +189,5 @@ CMD_HELP.update({
     ".update\
 \nUsage: Checks if the main userbot repository has any updates and shows a changelog if so.\
 \n\n.update now\
-\nUsage: Updates your aone-kangbot, if there are any updates in the main aone-kangbot repository."
+\nUsage: Updates your userbot, if there are any updates in the main userbot repository."
 })
