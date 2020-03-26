@@ -85,8 +85,8 @@ def register(**args):
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**USERBOT ERROR REPORT**\n"
-                    text += "Nothing is logged except the fact of error and date\n"
+                    text = "**KAPAL OLENG KAPTEN!**\n"
+                    text += "Mayday mayday, we going down!\n"
 
                     ftext = "========== DISCLAIMER =========="
                     ftext += "\nThis file uploaded ONLY here,"
