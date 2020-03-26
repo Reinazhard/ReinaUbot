@@ -24,7 +24,7 @@ A pack can't have more than 120 stickers at the moment."
 KANGING_STR = [
      "Using Debus to kang this sticker...",
     "Kanging hehe...",
-    "Inviting this sticker over to my pack...",
+    "Kanging this sticker over to my pack...",
     "Kanging this sticker...",
     "Hey nigga,that's a nice sticker!\nMind if I kang?!..",
     "i love kang....",
@@ -241,7 +241,7 @@ async def kang(args):
                 # Ensure user doesn't get spamming notifications
                 await bot.send_read_acknowledge(conv.chat_id)
 
-        await args.edit(f"`Sticker kanged successfully!`\
+        await args.edit(f"`HaHa Yes!`\nYour sticker has been kanged by @eve_enryu!`\
             \nPack can be found [here](t.me/addstickers/{packname})",
                         parse_mode='md')
 
