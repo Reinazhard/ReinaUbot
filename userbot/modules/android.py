@@ -189,7 +189,7 @@ async def twrp(request):
 
 @register(outgoing=True, pattern=r"^.ofox(?: |$)(\S*)")
 async def orangefox(request):
-    """OrangeFox Recovery"""
+    """ OrangeFox Recovery """
     textx = await request.get_reply_message()
     device = request.pattern_match.group(1)
     if device:
