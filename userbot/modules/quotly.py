@@ -12,18 +12,18 @@ async def _(event):
     if event.fwd_from:
         return 
     if not event.reply_to_msg_id:
-       await event.edit("```Reply to any user message.```")
+       await event.edit("```Reply to another nigga.```")
        return
     reply_message = await event.get_reply_message() 
     if not reply_message.text:
-       await event.edit("```Reply to text message```")
+       await event.edit("```It's not a text, nigga```")
        return
     chat = "@QuotLyBot"
     sender = reply_message.sender
     if reply_message.sender.bot:
-       await event.edit("```Reply to actual users message.```")
+       await event.edit("```Reply to actual nigga.```")
        return
-    await event.edit("```Making a Quote```")
+    await event.edit("```Fucking slow bot```")
     async with bot.conversation(chat) as conv:
           try:     
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1031952739))
