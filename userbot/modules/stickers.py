@@ -22,18 +22,18 @@ PACK_FULL = "Whoa! That's probably enough stickers for one pack, give it a break
 A pack can't have more than 120 stickers at the moment."
 
 KANGING_STR = [
-    "Using Witchery to kang this sticker...",
-    "Plagiarising hehe...",
+     "Using Debus to kang this sticker...",
+    "Kanging hehe...",
     "Inviting this sticker over to my pack...",
     "Kanging this sticker...",
-    "Hey that's a nice sticker!\nMind if I kang?!..",
-    "hehe me stel ur stikér\nhehe.",
-    "Ay look over there (☉｡☉)!→\nWhile I kang this...",
-    "Roses are red violets are blue, kanging this sticker so my pacc looks cool",
+    "Hey nigga,that's a nice sticker!\nMind if I kang?!..",
+    "i love kang....",
+    "Nice sticker nigga...",
+    "Roses are red violets are blue,\nThis sticker is kanged from you...",
     "Imprisoning this sticker...",
-    "Mr.Steal Your Sticker is stealing this sticker... ",
+    "Mr.Swiper is stealing this sticker... ",
     "Imma Kanger...",
-    "Owner of this stiker got rekt",
+    "Owner of this nigga stiker got rekt",
 ]
 
 
