@@ -16,7 +16,7 @@ import sys
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, HEROKU_APIKEY, HEROKU_APPNAME, UPSTREAM_REPO_URL
+from userbot import CMD_HELP, bot, HEROKU_APIKEY, HEROKU_APPNAME, UPSTREAM_REPO_URL
 from userbot.events import register
 
 requirements_path = path.join(
@@ -28,16 +28,10 @@ async def gen_chlog(repo, diff):
     d_form = "%d/%m/%y"
     for c in repo.iter_commits(diff):
         ch_log += f'•[{c.committed_datetime.strftime(d_form)}]: {c.summary} <{c.author}>\n'
-
     return ch_log
 
 
-async def is_off_br(br):
-#    off_br = ['sql-extended']
-#    for k in off_br:
-#        if k == br:
-#            return 1
-#    return
+async def update_requirements():
     reqs = str(requirements_path)
     try:
         process = await asyncio.create_subprocess_shell(
@@ -50,7 +44,6 @@ async def is_off_br(br):
         return repr(e)
 
 
-#@register(outgoing=True, pattern="^.update(?: |$)(.*)")
 @register(outgoing=True, pattern="^\.update(?: |$)(.*)")
 async def upstream(ups):
     "For .update command, check if the bot is up to date, update if specified"
@@ -75,26 +68,19 @@ async def upstream(ups):
         if conf != "now":
             await ups.edit(
                 f"`Unfortunately, the directory {error} does not seem to be a git repository.\
-            \nBut we can fix that by force updating the userbot using .update now.`"
+            \nBut we can fix that by force updating the aone-kangbot using .update now.`"
             )
             return
         repo = Repo.init()
- #       await ups.edit(
- #           "`Warning: Force-Syncing to the latest stable code from repo.`\
- #           \nI may lose my downloaded files during this update."
- #       )
         origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
- #       repo.create_head('sql-extended', origin.refs.master)
- #       repo.heads.master.checkout(True)
         force_update = True
-        repo.create_head('sql-extended', origin.refs.master)
-        repo.heads.master.set_tracking_branch(origin.refs.master)
-        repo.heads.master.checkout(True)
+        repo.create_head('sql-extended', origin.refs.sql-extended)
+        repo.heads.sql-extended.set_tracking_branch(origin.refs.sql-extended)
+        repo.heads.sql-extended.checkout(True)
 
     ac_br = repo.active_branch.name
-#    if not await is_off_br(ac_br):
-    if ac_br != 'master':
+    if ac_br != 'sql-extended':
         await ups.edit(
             f'**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). '
             'in that case, Updater is unable to identify '
@@ -104,13 +90,13 @@ async def upstream(ups):
         return
 
     try:
-
         repo.create_remote('upstream', off_repo)
     except BaseException:
         pass
 
     ups_rem = repo.remote('upstream')
     ups_rem.fetch(ac_br)
+
     changelog = await gen_chlog(repo, f'HEAD..upstream/{ac_br}')
 
     if not changelog and not force_update:
@@ -131,18 +117,17 @@ async def upstream(ups):
                 "output.txt",
                 reply_to=ups.id,
             )
-  
             remove("output.txt")
         else:
             await ups.edit(changelog_str)
-        await ups.respond('`do \".update now\" to update**\n Deploy manually if using heroku`')
+        await ups.respond('`do \".update now\" to update`')
         return
 
     if force_update:
         await ups.edit(
-            '`Force-Syncing to latest stable userbot code, please wait...`')
+            '`Force-Syncing to latest stable aone-kangbot code, please wait...`')
     else:
-        await ups.edit('`Updating userbot, please wait....`')
+        await ups.edit('`Updating aone-kangbot, please wait....`')
     # We're in a Heroku Dyno, handle it's memez.
     if HEROKU_APIKEY is not None:
         import heroku3
@@ -151,7 +136,7 @@ async def upstream(ups):
         heroku_applications = heroku.apps()
         if not HEROKU_APPNAME:
             await ups.edit(
-                '`[HEROKU MEMEZ] Please set up the HEROKU_APPNAME variable to be able to update userbot.`'
+                '`[HEROKU MEMEZ] Please set up the HEROKU_APPNAME variable to be able to update aone-kangbot.`'
             )
             repo.__del__()
             return
@@ -161,12 +146,12 @@ async def upstream(ups):
                 break
         if heroku_app is None:
             await ups.edit(
-                f'{txt}\n`Invalid Heroku credentials for updating userbot dyno.`'
+                f'{txt}\n`Invalid Heroku credentials for updating aone-kangbot dyno.`'
             )
             repo.__del__()
             return
         await ups.edit('`[HEROKU MEMEZ]\
-                        \nUserbot dyno build in progress, please wait for it to complete.`'
+                        \naone-kangbot dyno build in progress, please wait for it to complete.`'
                        )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -192,17 +177,18 @@ async def upstream(ups):
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
         reqs_upgrade = await update_requirements()
-        msg  = await ups.edit('`Successfully Updated!\n'
-                       'Bot is restarting... Wait for a second!`')
+        await ups.edit('`Successfully Updated!\n'
+                       'Bot is restarting... Wait for a second! and happy kanging`')
         # Spin a new instance of bot
         args = [sys.executable, "-m", "userbot"]
         execle(sys.executable, *args, environ)
         return
+
 
 CMD_HELP.update({
     'update':
     ".update\
 \nUsage: Checks if the main userbot repository has any updates and shows a changelog if so.\
 \n\n.update now\
-\nUsage: Updates your userbot, if there are any updates in the main userbot repository."
+\nUsage: Updates your aone-kangbot, if there are any updates in the main aone-kangbot repository."
 })
