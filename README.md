@@ -6,7 +6,7 @@
 <p align="center">&nbsp;</p>
 <h2 align="center">How To Host</h2>
 <h5 align="center">This is way to cheat</h5>
-<p align="center"><a href="https://heroku.com/deploy"> <img src="https://photos.app.goo.gl/F91WY4UKb54DGV1Z6"></a></p>
+<p align="center"><a href="https://heroku.com/deploy"> <img src="https://t.me/wearelesn/671"></a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Credits</h2>
 <p align="center">Huge thanks to <a href="https://github.com/Spyderzz/Userbot/graphs/contributors">everyone && yincen17 && azrim</a> who have helped make this userbot awesome!!</p>
