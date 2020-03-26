@@ -229,5 +229,5 @@ CMD_HELP.update({
 \n\n.twrp <codename>\
 \nUsage: Get latest twrp download for android device.\
 \n\n.ofox <codename>\
-\nUsage: Get Ofox for your device."
+\nUsage: Get Ofox for your device."\
 })
