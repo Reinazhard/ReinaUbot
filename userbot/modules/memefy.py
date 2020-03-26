@@ -8,7 +8,7 @@ import os
 import requests
 import asyncio
 
-from userbot.modules.misc upload_download import humanbytes
+from userbot.modules.upload_download import humanbytes
 from userbot import TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, bot
 from userbot.events import register
 
