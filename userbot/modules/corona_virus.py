@@ -5,7 +5,6 @@
 #
 # Port to UserBot by @MoveAngel
 
-from covid import Covid
 from userbot import CMD_HELP
 from userbot.events import register
 
