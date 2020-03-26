@@ -218,7 +218,7 @@ async def get_orangefox(device):
             pass
         if downloads:
             info = json.loads(await fetch(session, f'{api_url}/details/{device}'))
-            reply= {'name': info['fullname'], 'maintainer': info['maintainer'], 'downloads': downloads}ync def orangefox(request):
+            reply= {'name': info['fullname'], 'maintainer': info['maintainer'], 'downloads': downloads}
         await request.edit(reply)
 
 
