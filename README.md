@@ -9,7 +9,7 @@
 <p align="center"><a href="https://heroku.com/deploy"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Reynhard_Sinaga.jpg/220px-Reynhard_Sinaga.jpg"></a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Credits</h2>
-<p align="center">Huge thanks to <a href="https://github.com/Spyderzz/Userbot/graphs/contributors">everyone</a> && yincen17 && azrim who have helped make this userbot awesome!!</p>
+<p align="center">Huge thanks to <a href="https://github.com/Spyderzz/Userbot/graphs/contributors">everyone</a> && <a href="https://github.com/yincen17">yincen17</a> && azrim who have helped make this userbot awesome!!</p>
 <p align="center">&nbsp;</p>
 <h2 align="center">License</h2>
 <p align="center"><a href="https://github.com/Spyderzz/Userbot/blob/master/LICENSE">Raphielscape Public License</a> - Version 1.c, June 2019</p>
