@@ -5,10 +5,16 @@
 #
 """ Userbot module which contains afk-related commands """
 
+import asyncio
+import datetime
+import pytz
+
 from random import choice, randint
 from asyncio import sleep
 
 from telethon.events import StopPropagation
+from telethon import events
+from telethon.tl import functions, types
 
 from userbot import (AFKREASON, COUNT_MSG, CMD_HELP, ISAFK, BOTLOG,
                      BOTLOG_CHATID, USERS, PM_AUTO_BAN)
@@ -25,7 +31,13 @@ AFKSTR = [
     "I'm in isekai rn,don't disturb me !",
 ]
 # =================================================================
+#Set time variable
 
+tz_ID = pytz.timezone('Asia/Jakarta')
+datetime_ID = datetime.now(tz_ID)
+afk_time = datetime_ID.strftime("%H:%M")
+
+# =================================================================
 
 @register(incoming=True, disable_edited=True)
 async def mention_afk(mention):
@@ -40,11 +52,40 @@ async def mention_afk(mention):
         ISAFK_SQL = gvarstatus("AFK_STATUS")
         AFKREASON_SQL = gvarstatus("AFK_REASON")
     EXCUSE = AFKREASON_SQL if afk_db else AFKREASON
+
     if mention.message.mentioned and not (await mention.get_sender()).bot:
+        now = datetime.datetime.now()
+        datime_since_afk = now  # pylint:disable=E0602
+        time = float(datime_since_afk.seconds)
+        days = time // (24 * 3600)
+        time = time % (24 * 3600)
+        hours = time // 3600
+        time %= 3600
+        minutes = time // 60
+        time %= 60
+        seconds = time
+        if days == 1:
+            afk_since = "**Yesterday**"
+        elif days > 1:
+            if days > 6:
+                date = now + \
+                    datetime.timedelta(
+                        days=-days, hours=-hours, minutes=-minutes)
+                afk_since = date.strftime("%A, %Y %B %m, %H:%I")
+            else:
+                wday = now + datetime.timedelta(days=-days)
+                afk_since = wday.strftime('%A')
+        elif hours > 1:
+            afk_since = f"`{int(hours)}h{int(minutes)}m` **ago**"
+        elif minutes > 0:
+            afk_since = f"`{int(minutes)}m{int(seconds)}s` **ago**"
+        else:
+            afk_since = f"`{int(seconds)}s` **ago**"
         if ISAFK or ISAFK_SQL:
             if mention.sender_id not in USERS:
                 if EXCUSE:
-                    await mention.reply(f"My King is AFK right now.\
+                    await mention.reply(f"I'm AFK right now.\
+                    \nSince : `{afk_since}`\
                     \nReason: `{EXCUSE}`")
                 else:
                     await mention.reply(str(choice(AFKSTR)))
@@ -54,7 +95,8 @@ async def mention_afk(mention):
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if EXCUSE:
                         await mention.reply(
-                            f"In case you didn't notice, My King still AFK.\
+                            f"In case you didn't notice, I'm still AFK.\
+                        \nSince : `{afk_since}`\
                         \nReason: `{EXCUSE}`")
                     else:
                         await mention.reply(str(choice(AFKSTR)))
@@ -62,53 +104,6 @@ async def mention_afk(mention):
                     COUNT_MSG = COUNT_MSG + 1
                 else:
                     USERS[mention.sender_id] = USERS[mention.sender_id] + 1
-                    COUNT_MSG = COUNT_MSG + 1
-
-
-@register(incoming=True, disable_errors=True)
-async def afk_on_pm(sender):
-    """ Function which informs people that you are AFK in PM """
-    global ISAFK
-    global AFFKREASON
-    ISAFK_SQL = False
-    AFKREASON_SQL = None
-    if afk_db:
-        ISAFK_SQL = gvarstatus("AFK_STATUS")
-        AFKREASON_SQL = gvarstatus("AFK_REASON")
-    global USERS
-    global COUNT_MSG
-    EXCUSE = AFKREASON_SQL if afk_db else AFKREASON
-    if sender.is_private and sender.sender_id != 777000 and not (
-            await sender.get_sender()).bot:
-        if PM_AUTO_BAN:
-            try:
-                from userbot.modules.sql_helper.pm_permit_sql import is_approved
-                apprv = is_approved(sender.sender_id)
-            except AttributeError:
-                apprv = True
-        else:
-            apprv = True
-        if apprv and (ISAFK or ISAFK_SQL):
-            if sender.sender_id not in USERS:
-                if EXCUSE:
-                    await sender.reply(f"My King is AFK right now.\
-                    \nReason: `{EXCUSE}`")
-                else:
-                    await sender.reply(str(choice(AFKSTR)))
-                USERS.update({sender.sender_id: 1})
-                COUNT_MSG = COUNT_MSG + 1
-            elif apprv and sender.sender_id in USERS:
-                if USERS[sender.sender_id] % randint(2, 4) == 0:
-                    if EXCUSE:
-                        await sender.reply(
-                            f"In case you didn't notice, My King still AFK.\
-                        \nReason: `{EXCUSE}`")
-                    else:
-                        await sender.reply(str(choice(AFKSTR)))
-                    USERS[sender.sender_id] = USERS[sender.sender_id] + 1
-                    COUNT_MSG = COUNT_MSG + 1
-                else:
-                    USERS[sender.sender_id] = USERS[sender.sender_id] + 1
                     COUNT_MSG = COUNT_MSG + 1
 
 
@@ -131,9 +126,9 @@ async def set_afk(afk_e):
         await afk_e.edit(f"Going AFK!\
         \nReason: `{string}`")
     else:
-        await afk_e.edit("`My King is going to Isekai !!`")
+        await afk_e.edit("`Going away from Virtual World !!`")
     if BOTLOG:
-        await afk_e.client.send_message(BOTLOG_CHATID, "#AFK\nYou went to Isekai!")
+        await afk_e.client.send_message(BOTLOG_CHATID, "#AFK\nYou went AFK!")
     if afk_db:
         addgvar("AFK_STATUS", True)
     ISAFK = True
