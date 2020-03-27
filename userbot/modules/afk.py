@@ -36,23 +36,6 @@ AFKSTR = [
 tz_ID = pytz.timezone('Asia/Jakarta')
 datetime_ID = datetime.now(tz_ID)
 afk_time = datetime_ID.strftime("%H:%M")
-
-# =================================================================
-
-@register(incoming=True, disable_edited=True)
-async def mention_afk(mention):
-    """ This function takes care of notifying the people who mention you that you are AFK."""
-    global COUNT_MSG
-    global USERS
-    global ISAFK
-    global AFFKREASON
-    ISAFK_SQL = False
-    AFKREASON_SQL = None
-    if afk_db:
-        ISAFK_SQL = gvarstatus("AFK_STATUS")
-        AFKREASON_SQL = gvarstatus("AFK_REASON")
-    EXCUSE = AFKREASON_SQL if afk_db else AFKREASON
-#=================================================================
 now = datetime.datetime.now()
 datime_since_afk = now  # pylint:disable=E0602
 time = float(datime_since_afk.seconds)
@@ -80,8 +63,22 @@ elif minutes > 0:
     afk_since = f"`{int(minutes)}m{int(seconds)}s` **ago**"
 else:
     afk_since = f"`{int(seconds)}s` **ago**"
-#=================================================================
 
+# =================================================================
+
+@register(incoming=True, disable_edited=True)
+async def mention_afk(mention):
+    """ This function takes care of notifying the people who mention you that you are AFK."""
+    global COUNT_MSG
+    global USERS
+    global ISAFK
+    global AFFKREASON
+    ISAFK_SQL = False
+    AFKREASON_SQL = None
+    if afk_db:
+        ISAFK_SQL = gvarstatus("AFK_STATUS")
+        AFKREASON_SQL = gvarstatus("AFK_REASON")
+    EXCUSE = AFKREASON_SQL if afk_db else AFKREASON
     if mention.message.mentioned and not (await mention.get_sender()).bot:
         if ISAFK or ISAFK_SQL:
             if mention.sender_id not in USERS:
