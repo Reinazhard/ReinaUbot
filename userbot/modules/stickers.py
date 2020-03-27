@@ -172,8 +172,8 @@ async def kang(args):
                         await conv.get_response()
                         # Ensure user doesn't get spamming notifications
                         await bot.send_read_acknowledge(conv.chat_id)
-                        await args.edit(f"`Haha, yes. New kang pack unlocked!\
-                            \nPack can be found [here](t.me/addstickers/{packname})",
+                        await args.edit(f"'Haha, yes. New kang pack unlocked!`\
+                            \nRubbish can be found [here](t.me/addstickers/{packname})",
                                         parse_mode='md')
                         return
                 if is_anim:
