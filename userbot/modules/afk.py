@@ -42,7 +42,7 @@ hours = time // 3600
 time %= 3600
 minutes = time // 60
 time %= 60
-seconds = time
+second = time
 if days == 1:
     afk_since = "**Yesterday**"
 elif days > 1:
