@@ -44,7 +44,7 @@ async def mention_afk(mention):
         if ISAFK or ISAFK_SQL:
             if mention.sender_id not in USERS:
                 if EXCUSE:
-                    await mention.reply(f"I'm AFK right now.\
+                    await mention.reply(f"My King is AFK right now.\
                     \nReason: `{EXCUSE}`")
                 else:
                     await mention.reply(str(choice(AFKSTR)))
@@ -54,7 +54,7 @@ async def mention_afk(mention):
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if EXCUSE:
                         await mention.reply(
-                            f"In case you didn't notice, I'm still AFK.\
+                            f"In case you didn't notice, My King still AFK.\
                         \nReason: `{EXCUSE}`")
                     else:
                         await mention.reply(str(choice(AFKSTR)))
@@ -91,7 +91,7 @@ async def afk_on_pm(sender):
         if apprv and (ISAFK or ISAFK_SQL):
             if sender.sender_id not in USERS:
                 if EXCUSE:
-                    await sender.reply(f"I'm AFK right now.\
+                    await sender.reply(f"My King is AFK right now.\
                     \nReason: `{EXCUSE}`")
                 else:
                     await sender.reply(str(choice(AFKSTR)))
@@ -101,7 +101,7 @@ async def afk_on_pm(sender):
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if EXCUSE:
                         await sender.reply(
-                            f"In case you didn't notice, I'm still AFK.\
+                            f"In case you didn't notice, My King still AFK.\
                         \nReason: `{EXCUSE}`")
                     else:
                         await sender.reply(str(choice(AFKSTR)))
@@ -131,9 +131,9 @@ async def set_afk(afk_e):
         await afk_e.edit(f"Going AFK!\
         \nReason: `{string}`")
     else:
-        await afk_e.edit("`Going away from Virtual World !!`")
+        await afk_e.edit("`My King is going to Isekai !!`")
     if BOTLOG:
-        await afk_e.client.send_message(BOTLOG_CHATID, "#AFK\nYou went AFK!")
+        await afk_e.client.send_message(BOTLOG_CHATID, "#AFK\nYou went to Isekai!")
     if afk_db:
         addgvar("AFK_STATUS", True)
     ISAFK = True
