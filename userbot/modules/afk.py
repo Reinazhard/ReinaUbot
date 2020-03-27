@@ -57,7 +57,7 @@ elif days > 1:
 elif hours > 1:
     afk_since = f"`{int(hours)}h{int(minutes)}m` **ago**"
 elif minutes > 0:
-    afk_since = f"`{int(minutes)}m{int(second)}s` **ago**"
+    afk_since = f"`{int(minutes)}m{int(seconds)}s` **ago**"
 else:
     afk_since = f"`{int(second)}s` **ago**"
 
@@ -143,12 +143,15 @@ async def type_afk_is_not_true(notafk):
     if afk_db:
         ISAFK_SQL = gvarstatus("AFK_STATUS")
         AFKREASON_SQL = gvarstatus("AFK_REASON")
+        AFKSNCE_SQL = gvarstatus("afk_since")
     if ISAFK or ISAFK_SQL:
         if afk_db:
             delgvar("AFK_STATUS")
             delgvar("AFK_REASON")
+            delgvar("afk_since")
         ISAFK = False
         AFKREASON = None
+        AFKSNCE = None
         if BOTLOG:
             await notafk.client.send_message(
                 BOTLOG_CHATID,
