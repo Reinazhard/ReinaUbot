@@ -35,7 +35,7 @@ AFKSTR = [
 
 now = datetime.datetime.now()
 datime_since_afk = now  # pylint:disable=E0602
-time = float(datime_since_afk.seconds)
+time = float(datime_since_afk.second)
 days = time // (24 * 3600)
 time = time % (24 * 3600)
 hours = time // 3600
