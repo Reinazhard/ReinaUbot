@@ -33,9 +33,6 @@ AFKSTR = [
 # =================================================================
 #Set time variable
 
-tz_ID = pytz.timezone('Asia/Jakarta')
-datetime_ID = datetime.now(tz_ID)
-afk_time = datetime_ID.strftime("%H:%M")
 now = datetime.datetime.now()
 datime_since_afk = now  # pylint:disable=E0602
 time = float(datime_since_afk.seconds)
