@@ -57,9 +57,9 @@ elif days > 1:
 elif hours > 1:
     afk_since = f"`{int(hours)}h{int(minutes)}m` **ago**"
 elif minutes > 0:
-    afk_since = f"`{int(minutes)}m{int(seconds)}s` **ago**"
+    afk_since = f"`{int(minutes)}m{int(second)}s` **ago**"
 else:
-    afk_since = f"`{int(seconds)}s` **ago**"
+    afk_since = f"`{int(second)}s` **ago**"
 
 # =================================================================
 
