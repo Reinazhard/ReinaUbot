@@ -53,7 +53,7 @@ async def permitpm(event):
                 entity={urname},
                 messages=msg,
 
-  if event.chat_id in LASTMSG:
+     if event.chat_id in LASTMSG:
                     prevmsg = LASTMSG[event.chat_id]
                     # If the message doesn't same as previous one
                     # Send the Unapproved Message again
