@@ -20,16 +20,17 @@ UNAPPROVED_MSG = (
       "`Welcome, You are a wonderful person with a wonderful view of life.`\n\n"
       "`Your companionship is always an opportunity But Sed This line is not for you who is a common person.So just tell why you are here ?`\n"
       "`Your message will be responded when my king have free time,Don't sit here whole day coz there are lots of pending messages😶,`\n\n\n"
-      "`Peace from King Slave ✌️`"
+      "[Peace from King Slave ✌️](https://telegra.ph/Hello-There-03-29)"
 # =================================================================
 
 @register(incoming=True, disable_edited=True, disable_errors=True)
 async def permitpm(event):
     """ Prohibits people from PMing you without approval. \
         Will block retarded nibbas automatically. """
+    global USERS
     if PM_AUTO_BAN:
         self_user = await event.client.get_me()
-        a_user = await event.client.get_user()
+        a_user = await handler.client.get_user()
        urname = f"@{a_user.username}"
         msg = f"https://t.me/wearelesn/1009"
         if event.is_private and event.chat_id != 777000 and event.chat_id != self_user.id and not (
