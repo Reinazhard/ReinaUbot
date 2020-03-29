@@ -6,7 +6,6 @@
 """ Userbot module which contains afk-related commands """
 
 from datetime import datetime
-from datetime import replace
 import pytz
 
 from random import choice, randint
