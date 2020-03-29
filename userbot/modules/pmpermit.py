@@ -12,15 +12,13 @@ from telethon.tl.types import User
 from userbot import (BOTLOG, BOTLOG_CHATID, CMD_HELP, COUNT_PM, LASTMSG, LOGS,
                      PM_AUTO_BAN)
 from userbot.events import register
-from userbot.modules.dbhelper import (approval, approve, block_pm, notif_off,
-                                      notif_on, notif_state)
 
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = (
-    "`Bleep blop! This is a bot. Don't fret.\n\n`"
-    "`My master hasn't approved you to PM.`"
-    "`Please wait for my master to look in, he mostly approves PMs.\n\n`"
-    "`As far as I know, he doesn't usually approve retards though.`")
+    "`Bleep blop! This is a bot. Don't spam or i will yeet this missile.\n\n`"
+    "`My King hasn't approved you to PM.`"
+    "`Please wait for my King to look in, he mostly approves PMs.\n\n`"
+    "`As far as I know, he doesn't usually approve retards && common people though.`")
 # =================================================================
 
 
@@ -64,7 +62,7 @@ async def permitpm(event):
                     COUNT_PM[event.chat_id] = COUNT_PM[event.chat_id] + 1
 
                 if COUNT_PM[event.chat_id] > 4:
-                    await event.respond("`You were spamming my master's PM, "
+                    await event.respond("`You were spamming my King's PM, "
                                         " which I don't like.`"
                                         " `I'mma Report Spam.`")
 
