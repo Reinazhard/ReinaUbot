@@ -148,7 +148,7 @@ async def type_afk_is_not_true(notafk):
                     "[" + name0 + "](tg://user?id=" + str(i) + ")" +
                     " sent you " + "`" + str(USERS[i]) + " messages`",
                 )
-                datetime.replace({afk_time})
+                afk_time = datetime_ID.strftime("%H:%M")
         COUNT_MSG = 0
         USERS = {}
         AFKREASON = None
