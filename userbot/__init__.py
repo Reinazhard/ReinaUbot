@@ -208,6 +208,7 @@ with bot:
 
 # Global Variables
 COUNT_MSG = 0
+BRAIN_CHECKER = []
 USERS = {}
 COUNT_PM = {}
 LASTMSG = {}
