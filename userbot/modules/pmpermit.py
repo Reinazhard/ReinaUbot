@@ -27,6 +27,7 @@ UNAPPROVED_MSG = (
 async def permitpm(event):
     """ Prohibits people from PMing you without approval. \
         Will block retarded nibbas automatically. """
+   
     global USERS
     if PM_AUTO_BAN:
         self_user = await event.client.get_me()
