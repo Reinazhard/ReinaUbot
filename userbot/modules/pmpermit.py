@@ -18,7 +18,7 @@ from userbot.events import register
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = (
     "`Welcome, You are a wonderful person with a wonderful view of life.`\n\n"
-      "`Your companionship is always an opportunity But Sed This line is not for you who is a common person.So just tell why you are here ?`\n"
+      "`Your companionship is always an opportunity But Sed This line is not for you who is a common person.So just tell why you are here ?`\n\n"
       "`Your message will be responded when my king have free time,Don't sit here whole day coz there are lots of pending messages😶,`\n\n\n"
       "[Peace from King Slave ✌️](https://telegra.ph/Hello-There-03-29)")
 # =================================================================
