@@ -10,7 +10,7 @@ from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.functions.users import GetFullUserRequest
 
-from userbot import (COUNT_PM, HELPER, LOGGER, LOGGER_GROUP, NOTIF_OFF,
+from userbot import (COUNT_PM, CMD_HELP, LOGGER, LOGGER_GROUP, NOTIF_OFF,
                      PM_AUTO_BAN, BRAIN_CHECKER)
 from userbot.events import register
 
