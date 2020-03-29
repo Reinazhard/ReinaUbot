@@ -17,25 +17,20 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = (
-      "`Welcome, You are a wonderful person with a wonderful view of life.`\n\n"
+    "`Welcome, You are a wonderful person with a wonderful view of life.`\n\n"
       "`Your companionship is always an opportunity But Sed This line is not for you who is a common person.So just tell why you are here ?`\n"
       "`Your message will be responded when my king have free time,Don't sit here whole day coz there are lots of pending messages😶,`\n\n\n"
       "[Peace from King Slave ✌️](https://telegra.ph/Hello-There-03-29)")
 # =================================================================
 
+
 @register(incoming=True, disable_edited=True, disable_errors=True)
 async def permitpm(event):
     """ Prohibits people from PMing you without approval. \
         Will block retarded nibbas automatically. """
-   
-    global USERS
     if PM_AUTO_BAN:
         self_user = await event.client.get_me()
-        a_user = await handler.client.get_user()
-        urname = f"@{a_user.username}"
-        msg = f"https://t.me/wearelesn/1009"
-        
-    if event.is_private and event.chat_id != 777000 and event.chat_id != self_user.id and not (
+        if event.is_private and event.chat_id != 777000 and event.chat_id != self_user.id and not (
                 await event.get_sender()).bot:
             try:
                 from userbot.modules.sql_helper.pm_permit_sql import is_approved
@@ -49,11 +44,7 @@ async def permitpm(event):
             # If the message that sent before is Unapproved Message
             # then stop sending it again to prevent FloodHit
             if not apprv and event.text != UNAPPROVED_MSG:
-                await handler.client.forward_messages(
-                entity={urname},
-                messages=msg,)
-
-    if event.chat_id in LASTMSG:
+                if event.chat_id in LASTMSG:
                     prevmsg = LASTMSG[event.chat_id]
                     # If the message doesn't same as previous one
                     # Send the Unapproved Message again
@@ -78,8 +69,8 @@ async def permitpm(event):
 
                 if COUNT_PM[event.chat_id] > 4:
                     await event.respond(
-                        "`I didn't like you spamming my PM.`\n"
-                        "`You have been BLOCKED and reported as SPAM, wait a minute until i online.`"
+                        "`You were spamming my Mastor's PM, which I didn't like.`\n"
+                        "`You have been BLOCKED and reported as SPAM, until further notice.`"
                     )
 
                     try:
@@ -247,12 +238,12 @@ async def blockpm(block):
         aname = replied_user.id
         name0 = str(replied_user.first_name)
         await block.client(BlockRequest(replied_user.id))
-        await block.edit("`You has been blocked!`")
+        await block.edit("`You've been blocked!`")
         uid = replied_user.id
     else:
         await block.client(BlockRequest(block.chat_id))
         aname = await block.client.get_entity(block.chat_id)
-        await block.edit("`You has been blocked!`")
+        await block.edit("`You've been blocked!`")
         name0 = str(aname.first_name)
         uid = block.chat_id
 
@@ -277,7 +268,7 @@ async def unblockpm(unblock):
         replied_user = await unblock.client.get_entity(reply.from_id)
         name0 = str(replied_user.first_name)
         await unblock.client(UnblockRequest(replied_user.id))
-        await unblock.edit("`You has been unblocked.`")
+        await unblock.edit("`You have been unblocked.`")
 
     if BOTLOG:
         await unblock.client.send_message(
