@@ -17,14 +17,11 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = (
-    "`Hey! Sorry, I haven't approved you to PM yet.`\n"
-    "`Please wait for me to look in`\n"
-    "`Until then, please don't spam my PM..`\n"
-    "`Thank you for being patient.`\n\n"
-    "`*This is an automated message`\n"
-    "`💖미나💖`")
+      "`Welcome, You are a wonderful person with a wonderful view of life.`\n\n"
+      "`Your companionship is always an opportunity But Sed This line is not for you who is a common person.So just tell why you are here ?`\n"
+      "`Your message will be responded when my king have free time,Don't sit here whole day coz there are lots of pending messages😶,`\n\n\n"
+      "`Peace from King Slave ✌️`"
 # =================================================================
-
 
 @register(incoming=True, disable_edited=True, disable_errors=True)
 async def permitpm(event):
@@ -32,6 +29,9 @@ async def permitpm(event):
         Will block retarded nibbas automatically. """
     if PM_AUTO_BAN:
         self_user = await event.client.get_me()
+        a_user = await event.client.get_user()
+       urname = f"@{a_user.username}"
+        msg = f"https://t.me/wearelesn/1009"
         if event.is_private and event.chat_id != 777000 and event.chat_id != self_user.id and not (
                 await event.get_sender()).bot:
             try:
@@ -46,7 +46,11 @@ async def permitpm(event):
             # If the message that sent before is Unapproved Message
             # then stop sending it again to prevent FloodHit
             if not apprv and event.text != UNAPPROVED_MSG:
-                if event.chat_id in LASTMSG:
+                await handler.client.forward_messages(
+                entity={urname},
+                messages=msg,
+
+  if event.chat_id in LASTMSG:
                     prevmsg = LASTMSG[event.chat_id]
                     # If the message doesn't same as previous one
                     # Send the Unapproved Message again
