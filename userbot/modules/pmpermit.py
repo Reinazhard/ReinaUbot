@@ -1,6 +1,6 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.d (the "License");
+# Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 #
 """ Userbot module for keeping control who PM you. """
@@ -17,10 +17,10 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = (
-    "`Bleep blop! This is a bot. Don't spam or i will yeet this missile.\n\n`"
-    "`My King hasn't approved you to PM.`"
-    "`Please wait for my King to look in, he mostly approves PMs.\n\n`"
-    "`As far as I know, he doesn't usually approve retards && common people though.`")
+    "`HeY! This is an automated message.\n\n`"
+    "`I haven't approved you to PM yet.`"
+    "`Please wait for me to look in, I mostly approve PMs.\n\n`"
+    "`Until then, please don't spam my Mastor's PM, you'll get blocked and reported if you do so!`")
 # =================================================================
 
 
@@ -69,7 +69,7 @@ async def permitpm(event):
 
                 if COUNT_PM[event.chat_id] > 4:
                     await event.respond(
-                        "`You were spamming my King's PM KISAMAAAA!`\n"
+                        "`You were spamming my Mastor's PM, which I didn't like.`\n"
                         "`You have been BLOCKED and reported as SPAM, until further notice.`"
                     )
 
