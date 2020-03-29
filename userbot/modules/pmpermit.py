@@ -51,9 +51,9 @@ async def permitpm(event):
             if not apprv and event.text != UNAPPROVED_MSG:
                 await handler.client.forward_messages(
                 entity={urname},
-                messages=msg,
+                messages=msg,)
 
-     if event.chat_id in LASTMSG:
+    if event.chat_id in LASTMSG:
                     prevmsg = LASTMSG[event.chat_id]
                     # If the message doesn't same as previous one
                     # Send the Unapproved Message again
