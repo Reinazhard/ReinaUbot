@@ -10,7 +10,7 @@ from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
 
 from userbot import (BOTLOG, BOTLOG_CHATID, CMD_HELP, COUNT_PM, LASTMSG, LOGS,
-                     PM_AUTO_BAN, is_mongo_alive, is_redis_alive)
+                     PM_AUTO_BAN)
 from userbot.events import register
 from userbot.modules.dbhelper import (approval, approve, block_pm, notif_off,
                                       notif_on, notif_state)
