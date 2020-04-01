@@ -31,7 +31,7 @@ AFKSTR = [
 ]
 
 now = datetime.datetime.now()
-datime_since_afk = now - borg.storage.afk_time  # pylint:disable=E0602
+datime_since_afk = now 
 time = float(datime_since_afk.seconds)
 days = time // (24 * 3600)
 time = time % (24 * 3600)
