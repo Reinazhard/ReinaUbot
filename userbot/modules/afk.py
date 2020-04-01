@@ -188,9 +188,9 @@ async def type_afk_is_not_true(notafk):
         if afk_db:
             delgvar("AFK_STATUS")
             delgvar("AFK_REASON")
+            afk_since.replace(second=0)
         ISAFK = False
         AFKREASON = None
-            afk_since.replace(second=0)
         if BOTLOG:
             await notafk.client.send_message(
                 BOTLOG_CHATID,
