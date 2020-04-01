@@ -87,7 +87,8 @@ async def mention_afk(mention):
                     if EXCUSE:
                         await mention.reply(
                             f"In case you didn't notice, I'm still AFK.\
-                        \nReason: `{EXCUSE}`")
+                          \nSince : `{afk_since}`\
+                          \nReason: `{EXCUSE}`")
                     else:
                         await mention.reply(str(choice(AFKSTR)))
                     USERS[mention.sender_id] = USERS[mention.sender_id] + 1
