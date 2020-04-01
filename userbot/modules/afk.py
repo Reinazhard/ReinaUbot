@@ -10,6 +10,7 @@ from asyncio import sleep
 
 import asyncio
 import datetime
+import pytz
 
 from telethon import events
 from telethon.tl import functions, types
@@ -189,7 +190,8 @@ async def type_afk_is_not_true(notafk):
         if afk_db:
             delgvar("AFK_STATUS")
             delgvar("AFK_REASON")
-            now = afk_since.replace(second=0)
+        unafk_time = datetime.now
+        afk_since = unafk_time.replace(second=0)
         ISAFK = False
         AFKREASON = None
         if BOTLOG:
