@@ -189,7 +189,7 @@ async def type_afk_is_not_true(notafk):
         if afk_db:
             delgvar("AFK_STATUS")
             delgvar("AFK_REASON")
-            afk_sincee = datetime.time(),
+            afk_sincee = datetime.time()
         ISAFK = False
         AFKREASON = None
           if BOTLOG:
