@@ -8,6 +8,8 @@
 from random import choice, randint
 from asyncio import sleep
 from datetime import datetime
+from datetime import time
+
 import asyncio
 import datetime
 
@@ -214,7 +216,7 @@ async def type_afk_is_not_true(notafk):
         if afk_db:
             delgvar("AFK_STATUS")
             delgvar("AFK_REASON")
-           afk_sincee = datetime.time(0s)
+           afk_sincee = datetime.time()
         ISAFK = False
         AFKREASON = None
           if BOTLOG:
