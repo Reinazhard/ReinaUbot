@@ -57,6 +57,7 @@ elif minutes > 0:
     afk_since = f"`{int(minutes)}m{int(second)}s` **ago**"
 else:
     afk_since = f"`{int(second)}s` **ago**"
+    afk_sincee = afk_since
 #==============================================================================
 @register(incoming=True, disable_edited=True)
 async def mention_afk(mention):
@@ -213,7 +214,7 @@ async def type_afk_is_not_true(notafk):
         if afk_db:
             delgvar("AFK_STATUS")
             delgvar("AFK_REASON")
-            afk_since = afk_since.replace(second=0)
+            afk_sincee = afk_since.replace(second=0)
         ISAFK = False
         AFKREASON = None
         if BOTLOG:
