@@ -7,7 +7,6 @@
 
 from random import choice, randint
 from asyncio import sleep
-from datetime import datetime
 
 import asyncio
 import datetime
