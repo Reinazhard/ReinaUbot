@@ -73,7 +73,7 @@ async def mention_afk(mention):
     EXCUSE = AFKREASON_SQL if afk_db else AFKREASON
     if mention.message.mentioned and not (await mention.get_sender()).bot:
         if ISAFK:
-            now = datetime.now()
+            now = datetime.datetime.now()
             datime_since_afk = now 
             time = float(datime_since_afk.seconds)
             days = time // (24 * 3600)
