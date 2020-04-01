@@ -242,7 +242,8 @@ elif minutes > 0:
 else:
     afk_since = f"`{int(second)}s` **ago**"
     afk_sincee = afk_since.replace(second=0)
-        ISAFK = False
+        
+      ISAFK = False
         AFKREASON = None
         if BOTLOG:
             await notafk.client.send_message(
