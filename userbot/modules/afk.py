@@ -7,7 +7,7 @@
 
 from random import choice, randint
 from asyncio import sleep
-
+from datetime import datetime
 import asyncio
 import datetime
 
@@ -74,7 +74,7 @@ async def mention_afk(mention):
     if mention.message.mentioned and not (await mention.get_sender()).bot:
         if ISAFK:
             now = datetime.now()
-            datime_since_afk = now - afk_time  # pylint:disable=E0602
+            datime_since_afk = now 
             time = float(datime_since_afk.seconds)
             days = time // (24 * 3600)
             time = time % (24 * 3600)
