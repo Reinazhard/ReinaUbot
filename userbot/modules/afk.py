@@ -214,37 +214,38 @@ async def type_afk_is_not_true(notafk):
         if afk_db:
             delgvar("AFK_STATUS")
             delgvar("AFK_REASON")
+            
             now = datetime.datetime.now()
-datime_since_afk = now
-time = float(datime_since_afk.second)
-days = time // (24 * 3600)
-time = time % (24 * 3600)
-hours = time // 3600
-time %= 3600
-minutes = time // 60
-time %= 60
-second = time
-if days == 1:
-    afk_since = "**Yesterday**"
-elif days > 1:
-    if days > 6:
-        date = now + \
-            datetime.timedelta(
+            datime_since_afk = now
+            time = float(datime_since_afk.second)
+            days = time // (24 * 3600)
+            time = time % (24 * 3600)
+            hours = time // 3600
+            time %= 3600
+            minutes = time // 60
+            time %= 60
+            second = time
+            if days == 1:
+            afk_since = "**Yesterday**"
+        elif days > 1:
+              if days > 6:
+              date = now + \
+              datetime.timedelta(
                 days=-days, hours=-hours, minutes=-minutes)
-        afk_since = date.strftime("%A, %Y %B %m, %H:%I")
-    else:
-        wday = now + datetime.timedelta(days=-days)
-        afk_since = wday.strftime('%A')
-elif hours > 1:
-    afk_since = f"`{int(hours)}h{int(minutes)}m` **ago**"
-elif minutes > 0:
-    afk_since = f"`{int(minutes)}m{int(second)}s` **ago**"
-else:
-    afk_since = f"`{int(second)}s` **ago**"
-    afk_sincee = afk_since.replace(second=0)
+            afk_since = date.strftime("%A, %Y %B %m, %H:%I")
+        else:
+             wday = now + datetime.timedelta(days=-days)
+            afk_since = wday.strftime('%A')
+        elif hours > 1:
+            afk_since = f"`{int(hours)}h{int(minutes)}m` **ago**"
+        elif minutes > 0:
+            afk_since = f"`{int(minutes)}m{int(second)}s` **ago**"
+        else:
+            afk_since = f"`{int(second)}s` **ago**"
+            afk_sincee = afk_since.replace(second=0)
         
       ISAFK = False
-        AFKREASON = None
+      AFKREASON = None
         if BOTLOG:
             await notafk.client.send_message(
                 BOTLOG_CHATID,
