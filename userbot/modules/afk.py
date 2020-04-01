@@ -32,14 +32,14 @@ AFKSTR = [
 
 now = datetime.datetime.now()
 datime_since_afk = now 
-time = float(datime_since_afk.seconds)
+time = float(datime_since_afk.second)
 days = time // (24 * 3600)
 time = time % (24 * 3600)
 hours = time // 3600
 time %= 3600
 minutes = time // 60
 time %= 60
-seconds = time
+second = time
 if days == 1:
     afk_since = "**Yesterday**"
 elif days > 1:
@@ -54,9 +54,9 @@ elif days > 1:
 elif hours > 1:
     afk_since = f"`{int(hours)}h{int(minutes)}m` **ago**"
 elif minutes > 0:
-    afk_since = f"`{int(minutes)}m{int(seconds)}s` **ago**"
+    afk_since = f"`{int(minutes)}m{int(second)}s` **ago**"
 else:
-    afk_since = f"`{int(seconds)}s` **ago**"
+    afk_since = f"`{int(second)}s` **ago**"
 #==============================================================================
 @register(incoming=True, disable_edited=True)
 async def mention_afk(mention):
