@@ -192,7 +192,7 @@ async def type_afk_is_not_true(notafk):
             afk_sincee = datetime.time()
         ISAFK = False
         AFKREASON = None
-          if BOTLOG:
+    if BOTLOG:
             await notafk.client.send_message(
                 BOTLOG_CHATID,
                 "You've recieved " + str(COUNT_MSG) + " messages from " +
