@@ -36,12 +36,12 @@ async def _(event):
         try:
             await silently_send_message(bot_conv, "/list")
             await bot.send_message(chat, link)
-    except YouBlockedUserError:
-        await event.reply("```Unblock @ofoxr_bot plox```")
-        return
-    else:
-        await event.delete()
-        await bot.forward_messages(event.chat_id, response.message)
+        except YouBlockedUserError:
+            await event.reply("```Unblock @ofoxr_bot plox```")
+            return
+        else:
+            await event.delete()
+            await bot.forward_messages(event.chat_id, response.message)
 
 
 CMD_HELP.update({
