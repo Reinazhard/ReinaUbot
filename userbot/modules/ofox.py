@@ -45,7 +45,7 @@ async def _(event):
 
 
 CMD_HELP.update({
-"Ofox":
+"ofox":
 ".ofox <device> \
 \nUsage: Get latest OFRP\n"
 ".ofoxlist\
