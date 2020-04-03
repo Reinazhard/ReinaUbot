@@ -16,6 +16,7 @@ async def _(event):
     await event.edit("```Processing```")
     async with bot.conversation("@ofoxr_bot") as conv:
           try:
+              reply_message = await event.get_reply_message() 
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=424466890))
               await conv.send_message(f'/{link}')
               await bot.send_message(chat, reply_message)
