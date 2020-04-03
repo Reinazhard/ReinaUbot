@@ -45,7 +45,7 @@ async def _(event):
 
 
 CMD_HELP.update({
-"Orange Fox Recovery Project":
+"Ofox":
 ".ofox <device> \
 \nUsage: Get latest OFRP\n"
 ".ofoxlist\
