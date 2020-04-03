@@ -18,7 +18,6 @@ async def _(event):
           try:
               await conv.send_message(f'/{link}')
               await bot.send_message(chat, link)
-              response = await response
           except YouBlockedUserError:
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
