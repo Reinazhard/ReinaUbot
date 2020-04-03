@@ -1,4 +1,4 @@
-#created by @KeselekPermen69
+#created by @eve_enryu
 
 import datetime
 from telethon import events
