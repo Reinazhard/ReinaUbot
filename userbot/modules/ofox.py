@@ -1,4 +1,4 @@
-#created by @KeselekPermen69
+#created by @eve_enryu
 
 import datetime
 from telethon import events
@@ -14,9 +14,9 @@ async def _(event):
     link = event.pattern_match.group(1)
     chat = "@ofoxr_bot"
     await event.edit("```Processing```")
-    async with bot.conversation(chat) as conv:
+    async with bot.conversation("@ofoxr_bot") as conv:
           try:
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=424466890))
+              await silently_send_message(bot_conv, f"/{link}")
               await bot.send_message(chat, link)
               response = await response
           except YouBlockedUserError:
@@ -29,10 +29,13 @@ async def _(event):
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
 async def _(event):
-    try:
-        await event.edit("```Processing```")
-        await conv.send_message('/list')
-        await bot.send_message(chat, link)
+    chat = "@ofoxr_bot"
+    link = event.pattern_match.group(1)
+    await event.edit("```Processing```")
+    async with bot.conversation("@ofoxr_bot") as bot_conv:
+        try:
+            await silently_send_message(bot_conv, "/list")
+            await bot.send_message(chat, link)
     except YouBlockedUserError:
         await event.reply("```Unblock @ofoxr_bot plox```")
         return
