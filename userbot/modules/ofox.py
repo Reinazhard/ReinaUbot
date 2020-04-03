@@ -17,7 +17,7 @@ async def _(event):
     async with bot.conversation('@ofoxr_bot') as conv:
           try:
               reply_message = await event.get_reply_message() 
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=424466890))
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
               await conv.send_message(f'/{link}')
               response = conv.get_response()
           except YouBlockedUserError:
@@ -36,7 +36,7 @@ async def _(event):
     async with bot.conversation("@ofoxr_bot") as bot_conv:
         try:
             reply_message = await event.get_reply_message()
-            response = conv.wait_event(events.NewMessage(incoming=True,from_users=424466890))            
+            response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))            
             await conv.send_message('/list')
             await bot.forward_messages(chat, reply_message)
             response = await response
