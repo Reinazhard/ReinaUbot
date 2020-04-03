@@ -1,7 +1,6 @@
 #created by @eve_enryu
 
 import datetime
-import asyncio
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
@@ -20,7 +19,6 @@ async def _(event):
               reply_message = await event.get_reply_message()
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=424466890))
               await conv.send_message(f'/{link}')
-              await asyncio.sleep(1)
               await bot.send_message(reply_message)
               response = await response
           except YouBlockedUserError:
@@ -41,7 +39,6 @@ async def _(event):
             reply_message = await event.get_reply_message()
             response = conv.wait_event(events.NewMessage(incoming=True,from_users=424466890))            
             await conv.send_message('/list')
-            await asyncio.sleep(1)
             await bot.send_message(reply_message)
             response = await response
         except YouBlockedUserError:
