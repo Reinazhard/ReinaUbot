@@ -16,7 +16,7 @@ async def _(event):
     await event.edit("```Processing```")
     async with bot.conversation("@ofoxr_bot") as conv:
           try:
-              reply_message = await event.get_reply_message()
+              reply_mage = await event.get_reply_mage()
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=424466890))
               await conv.send_message(f'/{link}')
               await bot.send_message(chat, link, reply_message)
@@ -36,10 +36,10 @@ async def _(event):
     await event.edit("```Processing```")
     async with bot.conversation("@ofoxr_bot") as bot_conv:
         try:
-            reply_message = await event.get_reply_message()
+            reply_mage = await event.get_reply_message()
             response = conv.wait_event(events.NewMessage(incoming=True,from_users=424466890))            
             await conv.send_message('/list')
-            await bot.send_message(chat, link, reply_message)
+            await bot.send_message(chat, link, reply_mage)
             response = await response
         except YouBlockedUserError:
             await event.reply("```Unblock @ofoxr_bot plox```")
