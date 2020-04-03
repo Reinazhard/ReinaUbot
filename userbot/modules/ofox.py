@@ -19,8 +19,8 @@ async def _(event):
               reply_message = await event.get_reply_message() 
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=424466890))
               await conv.send_message(f'/{link}')
-              await bot.forward_messages(chat, reply_message)
-              response = await response
+              await bot.forward_messages(chat, link)
+              response = await bot_conv.get_response()
           except YouBlockedUserError:
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
