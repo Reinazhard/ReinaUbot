@@ -27,11 +27,11 @@ async def _(event):
              await bot.forward_messages(event.chat_id, response.message)
 
 
-@register(outgoing=True, pattern="^.ofox(?: |$)(.*)")
+@register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
 async def _(event):
     try:
         await event.edit("```Processing```")
-        await conv.send_message('/addsticker')
+        await conv.send_message('/list')
         await bot.send_message(chat, link)
     except YouBlockedUserError:
         await event.reply("```Unblock @ofoxr_bot plox```")
