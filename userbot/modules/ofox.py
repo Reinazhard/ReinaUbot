@@ -14,7 +14,7 @@ async def _(event):
     link = event.pattern_match.group(1)
     chat = "@ofoxr_bot"
     await event.edit("```Processing```")
-    async with bot.conversation('@ofoxr_bot') as conv:
+    async with bot.conversation(chat) as conv:
           try:
               reply_message = await event.get_reply_message() 
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
