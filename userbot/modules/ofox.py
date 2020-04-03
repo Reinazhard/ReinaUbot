@@ -1,4 +1,4 @@
-#created by @eve_enryu
+#created by @KeselekPermen69
 
 import datetime
 from telethon import events
@@ -27,10 +27,11 @@ async def _(event):
              await bot.forward_messages(event.chat_id, response.message)
 
 
-@register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
-async with bot.conversation(chat) as conv:
+@register(outgoing=True, pattern="^.ofox(?: |$)(.*)")
+async def _(event):
     try:
-        await conv.send_message('/list')
+        await event.edit("```Processing```")
+        await conv.send_message('/addsticker')
         await bot.send_message(chat, link)
     except YouBlockedUserError:
         await event.reply("```Unblock @ofoxr_bot plox```")
@@ -39,9 +40,10 @@ async with bot.conversation(chat) as conv:
         await event.delete()
         await bot.forward_messages(event.chat_id, response.message)
 
+
 CMD_HELP.update({
 "Orange Fox Recovery Project":
-".ofox <device>\
+".ofox <device> \
 \nUsage: Get latest OFRP\n"
 ".ofoxlist\
-\nGet supported device list"})
+\nUsage: Get supported devices list"})
