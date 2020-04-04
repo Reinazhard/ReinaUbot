@@ -1,7 +1,7 @@
 {
   "name": "Reina Test Bot",
   "description": "[Kang by Reina] A modular Telegram userbot running on Python 3.6+ with an sqlalchemy database.",
-  "logo": "https://telegra.ph/Enryu-logo-03-28",
+  "logo": "https://apkpure.com/id/hd-astolfo-wallpaper/com.magiccrown.hdastolfowallpaper",
   "keywords": [
     "telegram",
     "userbot",
@@ -9,7 +9,7 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/Reinazhard/ubotreina",
+  "repository": "https://github.com/Reinazhard/ReinaUbot",
   "website": "https://telegra.ph/How-to-host-a-Telegram-Userbot-07-24",
   "success_url": "https://t.me/eve_enryu",
   "env": {
