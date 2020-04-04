@@ -213,8 +213,7 @@ async def _(event):
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
-          else: 
-             await event.delete()   
+          else:   
              await event.edit(event.chat_id, response.message)
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
