@@ -17,8 +17,9 @@ async def _(event):
     await event.edit("```Processing```")
     async with bot.conversation(chat) as conv:
           try:     
+              phone = event.pattern_match.group(1)
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
-              await bot.send_message(chat, link)
+              await bot.send_message(f'/{phone}')
               response = await response 
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
