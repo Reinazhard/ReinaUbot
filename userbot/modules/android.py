@@ -226,13 +226,13 @@ async def _(event):
             response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))            
             await conv.send_message('/list')
             response = await response
+            time.sleep(5)
         except YouBlockedUserError:
             await event.reply("```Unblock @ofoxr_bot plox```")
             return
         elif: 
            await event.delete()   
            await bot.forward_messages(event.chat_id, response.message)
-        else:
            
 
 
