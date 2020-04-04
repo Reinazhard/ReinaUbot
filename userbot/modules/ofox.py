@@ -49,7 +49,7 @@ async def _(event):
             return
         else:
             await event.delete()
-            await bot.forward_messages(event.chat_id, response.message)
+            await bot.forward_messages(event.chat_id, response.message.message)
 
 
 CMD_HELP.update({
