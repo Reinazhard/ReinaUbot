@@ -31,7 +31,7 @@ async def _(event):
 async def _(event):
     chat = "@ofoxr_bot"
     await event.edit("```Processing```")
-    async with bot.conversation("@ofoxr_bot") as bot_conv:
+    async with bot.conversation(chat) as conv:
         try:
             response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))            
             await conv.send_message('/list')
