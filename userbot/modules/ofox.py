@@ -16,17 +16,16 @@ async def _(event):
     chat = "@ofoxr_bot"
     await event.edit("```Processing```")
     async with bot.conversation(chat) as conv:
-          try:
-              await event.get_reply_message() 
+          try:     
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
-              await asyncio.sleep(2)
-              await conv.send_message(f'/{link}')
-              response = conv.get_response()
-          except YouBlockedUserError:
+              await bot.send_message(chat, link)
+              response = await response 
+          except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
-          else:
-             await event.edit(f"{response.message}")
+          else: 
+             await event.delete()   
+             await bot.forward_messages(event.chat_id, response.message)
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
 async def _(event):
