@@ -196,7 +196,7 @@ async def twrp(request):
         f'**Updated:** __{date}__\n'
     await request.edit(reply)
 
-
+# made by reina (yeah still broken)
 @register(outgoing=True, pattern="^.ofox(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
