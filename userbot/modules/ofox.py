@@ -26,7 +26,7 @@ async def _(event):
           else:
              await event.delete()
              await bot.forward_messages(
-                entity=BOTLOG_CHATID,
+                entity=chat_id,
                 messages=msg,
                 from_peer=new_handler.chat_id,
                 silent=True)
