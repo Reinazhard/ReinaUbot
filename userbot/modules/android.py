@@ -191,35 +191,40 @@ async def twrp(request):
     await request.edit(reply)
 
 
-@register(outgoing=True, pattern=r"^.ofox(?: |$)(\S*)")
-async def get_orangefox(device):
-    """
-    fetch latest orangefox links for a device
-    """
-    api_url = "https://api.orangefox.tech"
-    host = "https://files.orangefox.tech"
-    async with ClientSession() as session:
+@register(outgoing=True, pattern="^.ofox(?: |$)(.*)")
+async def _(event):
+    if event.fwd_from:
+        return
+    phone = event.pattern_match.group(1)
+    chat = "@ofoxr_bot"
+    await event.edit("```Processing```")
+    async with bot.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
+              await conv.send_message(f'/{phone}')
+              response = await response 
+          except YouBlockedUserError: 
+              await event.reply("```Unblock @ofoxr_bot plox```")
+              return
+          else: 
+             await event.delete()   
+             await bot.forward_messages(event.chat_id, response.message)
+
+@register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
+async def _(event):
+    chat = "@ofoxr_bot"
+    await event.edit("```Processing```")
+    async with bot.conversation(chat) as conv:
         try:
-            devices = json.loads(await fetch(session, f'{api_url}/all_codenames/'))
-        except json.decoder.JSONDecodeError:
-            device = None
-        if device not in devices:
+            response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))            
+            await conv.send_message('/list')
+            response = await response
+        except YouBlockedUserError:
+            await event.reply("```Unblock @ofoxr_bot plox```")
             return
-        downloads = []
-        try:
-            stable = json.loads(await fetch(session, f'{api_url}/last_stable_release/{device}'))
-            downloads.append({f"{stable['file_name']}": f"{host}/" + "/".join(stable['file_path'].split('/')[5:])})
-        except json.decoder.JSONDecodeError:
-            pass
-        try:
-            beta = json.loads(await fetch(session, f'{api_url}/last_beta_release/{device}'))
-            downloads.append({f"{beta['file_name']}": f"{host}/" + "/".join(beta['file_path'].split('/')[5:])})
-        except json.decoder.JSONDecodeError:
-            pass
-        if downloads:
-            info = json.loads(await fetch(session, f'{api_url}/details/{device}'))
-            reply= {'name': info['fullname'], 'maintainer': info['maintainer'], 'downloads': downloads}
-        await request.edit(reply)
+        else: 
+           await event.delete()   
+           await bot.forward_messages(event.chat_id, response.message)
 
 
 CMD_HELP.update({
@@ -235,5 +240,7 @@ CMD_HELP.update({
 \n\n.twrp <codename>\
 \nUsage: Get latest twrp download for android device.\
 \n\n.ofox <codename>\
-\nUsage: Get Ofox for your device."\
+\nUsage: Get Ofox for your device.\
+\n\n.ofoxlist\
+\nUsage: Get latest Ofox for your devices."\
 })
