@@ -18,6 +18,7 @@ async def _(event):
           try:
               reply_message = await event.get_reply_message() 
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
+              await asyncio.sleep(2)
               await conv.send_message(f'/{link}')
               response = conv.get_response()
           except YouBlockedUserError:
