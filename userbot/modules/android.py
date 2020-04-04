@@ -18,7 +18,6 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 
-from userbot.utils import fetch
 from userbot import CMD_HELP, bot
 from userbot.events import register
 
