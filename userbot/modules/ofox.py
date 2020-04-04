@@ -12,12 +12,11 @@ from userbot.events import register
 async def _(event):
     if event.fwd_from:
         return
-    link = event.pattern_match.group(1)
+    phone = event.pattern_match.group(1)
     chat = "@ofoxr_bot"
     await event.edit("```Processing```")
     async with bot.conversation(chat) as conv:
-          try:     
-              phone = event.pattern_match.group(1)
+          try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
               await bot.send_message(f'/{phone}')
               response = await response 
