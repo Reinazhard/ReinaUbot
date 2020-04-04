@@ -25,11 +25,7 @@ async def _(event):
               return
           else:
              await event.delete()
-             await bot.forward_messages(
-                entity=chat_id,
-                messages=msg,
-                from_peer=new_handler.chat_id,
-                silent=True)
+             await bot.forward_messages(event.chat_id, response.message.message)
 
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
