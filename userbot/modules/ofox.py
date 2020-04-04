@@ -25,8 +25,7 @@ async def _(event):
               return
           else:
              await event.delete()
-             await bot.forward_messages(event.chat_id, response.message.message)
-
+             await event.edit(f"{response.message.message}")
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
 async def _(event):
