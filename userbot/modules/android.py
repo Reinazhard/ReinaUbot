@@ -5,15 +5,20 @@
 #
 """ Userbot module containing commands related to android"""
 
+import datetime
+import asyncio
 import re
 import json
 from requests import get
 from bs4 import BeautifulSoup
 
 from aiohttp import ClientSession
+from telethon import events
+from telethon.errors.rpcerrorlist import YouBlockedUserError
+from telethon.tl.functions.account import UpdateNotifySettingsRequest
 
 from userbot.utils import fetch
-from userbot import CMD_HELP
+from userbot import CMD_HELP, bot
 from userbot.events import register
 
 GITHUB = 'https://github.com'
