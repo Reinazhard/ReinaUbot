@@ -214,7 +214,8 @@ async def _(event):
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
           else:   
-             await event.edit(f"{response.message}")
+             await event.delete()   
+             await bot.forward_messages(event.chat_id, response.message)
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
 async def _(event):
