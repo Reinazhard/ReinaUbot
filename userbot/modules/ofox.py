@@ -25,7 +25,7 @@ async def _(event):
               return
           else:
              await event.delete()
-             await event.edit(f"{response.message.message}")
+             await event.edit(f"{response.message)")
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
 async def _(event):
