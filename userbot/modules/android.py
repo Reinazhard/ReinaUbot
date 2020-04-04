@@ -208,8 +208,8 @@ async def _(event):
           try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
               await conv.send_message(f'/{phone}')
-              response = await response
               time.sleep(3)
+              response = await response
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
