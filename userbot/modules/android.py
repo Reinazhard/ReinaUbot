@@ -5,6 +5,7 @@
 #
 """ Userbot module containing commands related to android"""
 
+import time
 import datetime
 import asyncio
 import re
@@ -207,7 +208,8 @@ async def _(event):
           try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
               await conv.send_message(f'/{phone}')
-              response = await response 
+              response = await response
+                time.sleep(5)
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
@@ -227,9 +229,11 @@ async def _(event):
         except YouBlockedUserError:
             await event.reply("```Unblock @ofoxr_bot plox```")
             return
-        else: 
+        elif: 
            await event.delete()   
            await bot.forward_messages(event.chat_id, response.message)
+        else:
+           
 
 
 CMD_HELP.update({
