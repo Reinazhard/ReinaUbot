@@ -30,21 +30,18 @@ async def _(event):
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
 async def _(event):
     chat = "@ofoxr_bot"
-    link = event.pattern_match.group(1)
     await event.edit("```Processing```")
     async with bot.conversation("@ofoxr_bot") as bot_conv:
         try:
-            reply_message = await event.get_reply_message()
             response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))            
             await conv.send_message('/list')
-            await bot.forward_messages(chat, reply_message)
             response = await response
         except YouBlockedUserError:
             await event.reply("```Unblock @ofoxr_bot plox```")
             return
-        else:
-            await event.delete()
-            await bot.forward_messages(event.chat_id, response.message.message)
+        else: 
+           await event.delete()   
+           await bot.forward_messages(event.chat_id, response.message)
 
 
 CMD_HELP.update({
