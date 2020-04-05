@@ -138,7 +138,9 @@ TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY",
                                          "./downloads")
 # Github
 GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
-GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None) 
+GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
+#Lydia
+LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
 
 # Setting Up CloudMail.ru and MEGA.nz extractor binaries,
 # and giving them correct perms to work properly.
@@ -166,6 +168,7 @@ if STRING_SESSION:
                          connection_retries=None,
                          auto_reconnect=False,
                          lang_code='en')
+
 else:
     # pylint: disable=invalid-name
     bot = TelegramClient("userbot",
