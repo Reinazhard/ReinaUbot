@@ -279,21 +279,6 @@ REDIS_PASSWORD = telethon.get('redis_password', False)
 userbot = config['userbot']
 LOGGER_CHAT_ID =int(os.environ.get("BOTLOG_CHATID", None)
 
-if REDIS_ENDPOINT and REDIS_PASSWORD:
-    REDIS_HOST = REDIS_ENDPOINT.split(':')[0]
-    REDIS_PORT = REDIS_ENDPOINT.split(':')[1]
-    redis_connection = redis.Redis(
-        host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD
-    )
-    try:
-        redis_connection.ping()
-    redis_db = redis_connection
-    if sql_session.exists():
-        session = "userbot"
-    else:
-        LOGGER.debug("Using Redis session!")
-        session = RedisSession("userbot", redis_connection)
-
 client = UserBotClient(
     session=session,
     api_id=API_ID,
