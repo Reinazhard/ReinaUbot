@@ -216,7 +216,7 @@ async def _(event):
             else:
                time.sleep(3)
                await event.edit("```Device not found\nUse .ofoxlist or .ofox list to get supported device list```")
-              else:   
+            else:   
                   await event.delete()   
                   await bot.forward_messages(event.chat_id, response.message)
 
