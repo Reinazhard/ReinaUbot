@@ -43,3 +43,4 @@ coffeehouse
 dill>=0.3.1.1
 redis>=3.3.10
 hiredis>=1.0.0
+telegraph
