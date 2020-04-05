@@ -212,11 +212,11 @@ async def _(event):
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
             else:
-              time.sleep(3) 
-              await event.edit("```Device not found\nUse .ofoxlist or .ofox list to get supported device list```")
-          else:   
-             await event.delete()   
-             await bot.forward_messages(event.chat_id, response.message)
+               time.sleep(3) 
+               await event.edit("```Device not found\nUse .ofoxlist or .ofox list to get supported device list```")
+             else:   
+                await event.delete()   
+                await bot.forward_messages(event.chat_id, response.message)
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
 async def _(event):
