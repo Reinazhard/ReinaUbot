@@ -206,7 +206,8 @@ API_ID = os.environ.get("API_KEY", None)
 REDIS_ENDPOINT = telethon.get('redis_endpoint', False)
 REDIS_PASSWORD = telethon.get('redis_password', False)
 
-userbot = config['userbot']
+kconfig = config['userbot']
+userbot = kconfig
 LOGGER_CHAT_ID =int(os.environ.get("BOTLOG_CHATID", None)
 
 
