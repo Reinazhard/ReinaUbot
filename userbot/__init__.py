@@ -278,7 +278,6 @@ REDIS_PASSWORD = telethon.get('redis_password', False)
 
 userbot = config['userbot']
 LOGGER_CHAT_ID =int(os.environ.get("BOTLOG_CHATID", None)
-
 client = UserBotClient(
     session=session,
     api_id=API_ID,
@@ -286,7 +285,6 @@ client = UserBotClient(
     loop=loop,
     app_version= 0.5,
     auto_reconnect=False)
-
 client.version = 0.5
 client.config = config
 client.prefix = userbot.get('userbot_prefix', None)
