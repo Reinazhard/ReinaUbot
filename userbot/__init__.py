@@ -212,6 +212,24 @@ with bot:
             "valid entity. Check your environment variables/config.env file.")
         quit(1)
 
+client = UserBotClient(
+    session=session,
+    api_id=API_ID,
+    api_hash=API_HASH,
+    loop=loop,
+    app_version= 0.5,
+    auto_reconnect=False
+)
+
+client.version = 0.5
+client.config = config
+client.prefix = userbot.get('userbot_prefix', None)
+client.database = redis_db
+        
+        
+        
+        
+        
 # Global Variables
 COUNT_MSG = 0
 BRAIN_CHECKER = []
