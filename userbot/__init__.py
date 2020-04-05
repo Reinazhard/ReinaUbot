@@ -272,19 +272,13 @@ if "telethon" not in config:
     sys.exit(1)
 
 telethon = config['telethon']
-API_ID = telethon.getint('api_id', False)
+API_ID = os.environ.get("API_KEY", None)
 REDIS_ENDPOINT = telethon.get('redis_endpoint', False)
 REDIS_PASSWORD = telethon.get('redis_password', False)
 
 userbot = config['userbot']
 LOGGER_CHAT_ID =int(os.environ.get("BOTLOG_CHATID", None)
-client = UserBotClient(
-    session=session,
-    api_id=API_ID,
-    api_hash=API_HASH,
-    loop=loop,
-    app_version= 0.5,
-    auto_reconnect=False)
+client = UserBotClient(session=session, api_id=API_ID, api_hash=API_HASH, loop=loop, app_version= 0.5, auto_reconnect=False)
 client.version = 0.5
 client.config = config
 client.prefix = userbot.get('userbot_prefix', None)
