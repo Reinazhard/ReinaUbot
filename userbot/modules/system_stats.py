@@ -125,7 +125,7 @@ async def amireallyalive(alive):
     await alive.edit("∩∩ （ • •） nn \n"
                        "┏━∪∪━━━━━UU━┓ \n"
                     "❝ `Okaerinasai, senchō`。 ❞\n"
-                        "┗━━━━━━━━━━━┛\")
+                        "┗━━━━━━━━━━━┛")
 
 
 @register(outgoing=True, pattern="^.aliveu")
