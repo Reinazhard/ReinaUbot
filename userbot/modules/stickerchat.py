@@ -39,7 +39,7 @@ if 1 == 1:
         "creator": "creator",
         "hidden": "hidden",
         "channel": "Channel",
-        "kang": "`This is cool word, let me kang it`"
+        "kang": "`Nice word {insert N-word here}`"
     }
 
     config = dict({"api_url": "http://api.antiddos.systems",
