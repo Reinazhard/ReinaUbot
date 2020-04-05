@@ -202,17 +202,15 @@ async def _(event):
         return
     phone = event.pattern_match.group(1)
     chat = "@ofoxr_bot"
-    TIMEOUT = time.sleep(3)
+    TIMEOUT_1 = time.sleep(3)
     await event.edit("```Processing```")
     async with bot.conversation(chat) as conv:
           try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
               await conv.send_message(f'/{phone}')
               response = await response
-            else:
-                 time.sleep(3)
-                 await event.edit("```Device not found```")
-                 return
+              if TIMEOUT_1:
+                  await event.edit("```Device not found```")
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
