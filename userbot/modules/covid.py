@@ -6,7 +6,7 @@
 # Port to UserBot by @MoveAngel
 
 from datetime import datetime
-from covid import covid
+import covid
 from userbot import CMD_HELP
 from userbot.events import register
 
