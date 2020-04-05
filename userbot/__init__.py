@@ -285,8 +285,7 @@ client = UserBotClient(
     api_hash=API_HASH,
     loop=loop,
     app_version= 0.5,
-    auto_reconnect=False
-)
+    auto_reconnect=False)
 
 client.version = 0.5
 client.config = config
