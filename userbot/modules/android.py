@@ -212,6 +212,9 @@ async def _(event):
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
+          elif:
+             time.sleep(3) 
+             await event.edit("```Device not found\n
           else:   
              await event.delete()   
              await bot.forward_messages(event.chat_id, response.message)
