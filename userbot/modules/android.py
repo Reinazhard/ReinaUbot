@@ -209,16 +209,14 @@ async def _(event):
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
               await conv.send_message(f'/{phone}')
               response = await response
-              time.sleep(3)
+              else:
+                 await event.edit("```Device not found```")
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
-            else:
-               time.sleep(3)
-               await event.edit("```Device not found\nUse .ofoxlist or .ofox list to get supported device list```")
-         else:   
-                  await event.delete()   
-                  await bot.forward_messages(event.chat_id, response.message)
+          else:   
+             await event.delete()   
+             await bot.forward_messages(event.chat_id, response.message)
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
 async def _(event):
