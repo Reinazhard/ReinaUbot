@@ -279,40 +279,7 @@ REDIS_PASSWORD = telethon.get('redis_password', False)
 userbot = config['userbot']
 LOGGER_CHAT_ID =int(os.environ.get("BOTLOG_CHATID", None)
 
-def verifyLoggerGroup(client: UserBotClient) -> None:
-    client.logger = True
 
-    def disable_logger(error: str):
-        if LOGGER_CHAT_ID != 0:
-            LOGGER.error(error)
-        client.logger = False
-
-    try:
-        entity = client.loop.run_until_complete(
-            client.get_entity(LOGGER_CHAT_ID)
-        )
-        if not isinstance(entity, types.User):
-            if not entity.creator:
-                if entity.default_banned_rights.send_messages:
-                    disable_logger(
-                        "Permissions missing to send messages "
-                        "for the specified Logger group."
-                    )
-    except ValueError:
-        disable_logger(
-            "Logger group ID cannot be found. "
-            "Make sure it's correct."
-        )
-    except TypeError:
-        disable_logger(
-            "Logger group ID is unsupported. "
-            "Make sure it's correct."
-        )
-    except Exception as e:
-        disable_logger(
-            "An Exception occured upon trying to verify "
-            "the logger group.\n" + str(e)
-        )
 
         
         
