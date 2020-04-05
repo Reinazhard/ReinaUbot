@@ -202,6 +202,7 @@ async def _(event):
         return
     phone = event.pattern_match.group(1)
     chat = "@ofoxr_bot"
+    timeout = time.sleep(3)
     await event.edit("```Processing```")
     async with bot.conversation(chat) as conv:
           try:
@@ -212,7 +213,7 @@ async def _(event):
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
-            elif time.sleep(3): 
+            elif timeout: 
                await event.edit("```Device not found\nUse .ofoxlist or .ofox list to get supported device list```")
              else:   
                 await event.delete()   
