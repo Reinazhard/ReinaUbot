@@ -208,10 +208,11 @@ async def _(event):
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
               await conv.send_message(f'/{phone}')
               response = await response
+              time.sleep(3)
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
-            elif time.sleep(3) 
+            elif time.sleep(3): 
                await event.edit("```Device not found\nUse .ofoxlist or .ofox list to get supported device list```")
              else:   
                 await event.delete()   
