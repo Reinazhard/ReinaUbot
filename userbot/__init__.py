@@ -153,64 +153,6 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 #Lydia
 LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
 
-__version__ = "0.5"
-__license__ = "GNU General Public License v3.0"
-__author__ = 'Kandarp <https://github.com/kandnub>'
-__copyright__ = (
-    "TG-UserBot  Copyright (C) 2019  Kandarp <https://github.com/kandnub>"
-)
-LEVELS = {
-    'DEBUG': logging.DEBUG,
-    'INFO': logging.INFO,
-    'ERROR': logging.ERROR,
-    'CRITICAL': logging.CRITICAL
-}
-
-redis_db = False
-config = configparser.ConfigParser()
-config_file = pathlib.Path('./config.ini')
-sql_session = pathlib.Path('./userbot.session')
-
-if platform.python_version_tuple() < ('3', '7', '3'):
-    print(
-        "Please run this script with Python 3.7.3 or above."
-        "\nExiting the script."
-    )
-    sys.exit(1)
-
-if config_file.exists():
-    config.read(config_file)
-    resolve_env(config)
-
-try:
-    resolve_env(config)
-except ValueError:
-    print(
-        "Please make sure you have a proper config.ini in this directory "
-        "or the required environment variables set."
-        "\nExiting the script."
-    )
-    sys.exit(1)
-
-ROOT_LOGGER = logging.getLogger()
-LOGGER = logging.getLogger(__name__)
-
-if "telethon" not in config:
-    print(
-        "You're not using a valid config, refer to the sample_config.ini"
-    )
-    sys.exit(1)
-
-telethon = config['telethon']
-API_ID = os.environ.get("API_KEY", None)
-REDIS_ENDPOINT = telethon.get('redis_endpoint', False)
-REDIS_PASSWORD = telethon.get('redis_password', False)
-
-kconfig = config['userbot']
-userbot = kconfig
-LOGGER_CHAT_ID =int(os.environ.get("BOTLOG_CHATID", None)
-
-
 # Setting Up CloudMail.ru and MEGA.nz extractor binaries,
 # and giving them correct perms to work properly.
 if not os.path.exists('bin'):
