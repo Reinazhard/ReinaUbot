@@ -155,7 +155,7 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
 
 #QUOTES API TOKEN
-QUOTES_API_TOKEN = os.environ.get("QUOTES_API_KEY", None)
+QUOTES_API_TOKEN = os.environ.get("QUOTES_API_TOKEN", None)
 #TELEGRapH
 TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", None)
 
