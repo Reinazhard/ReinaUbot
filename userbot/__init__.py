@@ -279,20 +279,6 @@ REDIS_PASSWORD = telethon.get('redis_password', False)
 userbot = config['userbot']
 LOGGER_CHAT_ID =int(os.environ.get("BOTLOG_CHATID", None)
 
-if sys.platform.startswith('win'):
-    from asyncio import ProactorEventLoop
-    from os import system
-
-    loop = ProactorEventLoop()
-    system('color')
-else:
-    loop = None
-
-if not (API_ID and API_HASH):
-    print("You need to set your API keys in your config or environment!")
-    LOGGER.debug("No API keys!")
-    sys.exit(1)
-
 if REDIS_ENDPOINT and REDIS_PASSWORD:
     REDIS_HOST = REDIS_ENDPOINT.split(':')[0]
     REDIS_PORT = REDIS_ENDPOINT.split(':')[1]
@@ -301,15 +287,6 @@ if REDIS_ENDPOINT and REDIS_PASSWORD:
     )
     try:
         redis_connection.ping()
-    except Exception as e:
-        LOGGER.exception(e)
-        print()
-        LOGGER.error(
-            "Make sure you have the correct Redis endpoint and password "
-            "and your machine can make connections."
-        )
-        sys.exit(1)
-    LOGGER.debug("Connected to Redis successfully!")
     redis_db = redis_connection
     if sql_session.exists():
         session = "userbot"
