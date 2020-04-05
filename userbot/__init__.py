@@ -17,6 +17,7 @@ from dotenv import load_dotenv
 from requests import get
 from telethon import TelegramClient
 from telethon.sessions import StringSession
+from userbot.utils.client import UserBotClient
 
 load_dotenv("config.env")
 
