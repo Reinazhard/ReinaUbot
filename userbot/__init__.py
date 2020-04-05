@@ -155,6 +155,8 @@ LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
 
 #QUOTES API TOKEN
 QUOTES_API_TOKEN = os.environ.get("QUOTES_API_KEY", None)
+#TELEGRapH
+TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", None)
 
 # Setting Up CloudMail.ru and MEGA.nz extractor binaries,
 # and giving them correct perms to work properly.
