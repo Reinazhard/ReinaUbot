@@ -125,8 +125,11 @@ def register(**args):
                     file.close()
 
                     if LOGSPAMMER:
-                        await check.respond("`Duh ajg ngecrash.`"\
-                                            )
+                        await check.respond("`Duh ajg ngecrash.`")
+                        rspnd = check.respond("`Duh ajg ngecrash.`")
+                        await rspnd.delete()
+                        
+                        
 
                     await check.client.send_file(send_to,
                                                  "error.log",
