@@ -212,8 +212,7 @@ async def _(event):
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
-          elif:
-             time.sleep(3) 
+          elif time.sleep(3) 
              await event.edit("```Device not found\nUse .ofoxlist or .ofox list to get supported device list```")
           else:   
              await event.delete()   
