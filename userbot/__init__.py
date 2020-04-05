@@ -278,12 +278,6 @@ REDIS_PASSWORD = telethon.get('redis_password', False)
 
 userbot = config['userbot']
 LOGGER_CHAT_ID =int(os.environ.get("BOTLOG_CHATID", None)
-CONSOLE_LOGGER = userbot.get('console_logger_level', 'INFO')
-
-if CONSOLE_LOGGER.upper() in LEVELS:
-    level = LEVELS[CONSOLE_LOGGER.upper()]
-    ROOT_LOGGER.setLevel(level)
-    LOGGER.setLevel(level)
 
 if sys.platform.startswith('win'):
     from asyncio import ProactorEventLoop
