@@ -124,7 +124,7 @@ async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     await alive.edit("  ∩∩ （ • •） \n"
 "┏━∪∪━━━━━━━━┓ \n"
-"Okaerinasai\n senchō。  \n"
+"┃Okaerinasai┃ \n┃senchō。   ┃  \n"
 "┗━━━━━━━━━━━┛ \n")
 
 
