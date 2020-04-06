@@ -1,7 +1,7 @@
 {
-  "name": "Reina Test Bot",
-  "description": "[Kang by Reina] A modular Telegram userbot running on Python 3.6+ with an sqlalchemy database.",
-  "logo": "https://apkpure.com/id/hd-astolfo-wallpaper/com.magiccrown.hdastolfowallpaper",
+  "name": "Telegram Open User Bot",
+  "description": "[OpenUserBot] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database.",
+  "logo": "https://telegra.ph/file/d04a1724c6dd8a957bd0e.png",
   "keywords": [
     "telegram",
     "userbot",
@@ -9,9 +9,10 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/Reinazhard/ReinaUbot",
-  "website": "https://telegra.ph/How-to-host-a-Telegram-Userbot-07-24",
-  "success_url": "https://t.me/eve_enryu",
+  "repository": "https://github.com/aone-id/aone-kangbot",
+  "website": "https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02",
+  "success_url": "https://t.me/PPE_Support",
+  "stack": "container",
   "env": {
     "API_KEY": {
       "description": "Get this value from my.telegram.org.",
@@ -25,14 +26,18 @@
       "description": "Get this value by running [python3 string_session.py] in Termux or local system.",
       "required": true
     },
+    "GENIUS_API_TOKEN": {
+      "description": "Get your own api token from https://genius.com/developers",
+      "required": false
+    },
+    "GENIUS": {
+      "description": "Get this value from https://genius.com/developers., basically same as GENIUS_API_TOKEN.",
+      "value": "0"
+    },
     "HEROKU_MEMEZ": {
-      "description": "This should be True if the userbor is running on a Heroku Dyno.",
+      "description": "This should be True if the userbot is running on a Heroku Dyno.",
       "value": "True",
       "required": true
-    },
-    "UPSTREAM_REPO_URL": {
-      "description": "In case you maintain a fork, add your repo URL here.",
-      "required": false
     },
     "HEROKU_API_KEY": {
       "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
@@ -40,6 +45,18 @@
     },
     "HEROKU_APP_NAME": {
       "description": "Add the Heroku app name here. It helps with userbot updates.",
+      "required": false
+    },
+    "GITHUB_ACCESS_TOKEN": {
+      "description": "Your GITHUB_ACCESS_TOKEN, get it from 'https://github.com/settings/tokens'",
+      "value": ""
+    },
+    "GIT_REPO_NAME": {
+      "description": "Add the GIT_REPO_NAME here. It helps with commit on GitHub.",
+      "required": false
+    },
+    "UPSTREAM_REPO_URL": {
+      "description": "In case you maintain a fork, add your repo URL here.",
       "required": false
     },
     "COUNTRY": {
@@ -53,12 +70,12 @@
     },
     "CHROME_DRIVER": {
       "description": "ChromeDriver location for selenium based modules.",
-      "value": "/app/.chromedriver/bin/chromedriver",
+      "value": "/usr/bin/chromedriver",
       "required": false
     },
     "GOOGLE_CHROME_BIN": {
       "description": "Google Chrome (or) Chromium binary location for selenium based modules.",
-      "value": "/app/.apt/usr/bin/google-chrome",
+      "value": "/usr/bin/chromium-browser",
       "required": false
     },
     "OPEN_WEATHER_MAP_APPID": {
@@ -105,6 +122,10 @@
       "description": "Download location for many modules (GDrive, .download etc..)",
       "value": "./downloads/"
     },
+    "QUOTES_API_TOKEN": {
+      "description": "Enhance ur text to sticker. Get your own API token from http://antiddos.systems.",
+      "required": false
+    },
     "CLEAN_WELCOME": {
       "description": "When a new person joins, the old welcome message is deleted.",
       "value": "True"
@@ -135,7 +156,7 @@
     },
     "DEFAULT_BIO": {
       "description": "Default profile bio.",
-      "value": "[PM = Report Spam] Beware of my userbot.",
+      "value": "[PM = Report Spam] I ❤ ️@OpenUserBot",
       "required": false
     },
     "ALIVE_NAME": {
@@ -148,6 +169,15 @@
     },
     "G_DRIVE_AUTH_TOKEN_DATA": {
       "description": "Enter the Google Drive authentication data, as a JSON structure.",
+      "required": false
+    },
+    "UB_BLACK_LIST_CHAT": {
+      "description": "haha",
+      "value": "-1001376711460 -1001232530981 -1001460242671 -1001255383765 -1001476589953 -1001298140471 -1001089118458 -1001224245343 -1001287976326 -1001377256951 -1001329042156 -1001202504432 -1001148103952 -1001063463715 -1001455478060 -1001251236870 -1001462536556 -1001120290128 -1001485556805 -1001220993104 -1001109500936 -1001305313195 -1001329980174",
+      "required": false
+    },
+    "LYDIA_API_KEY": {
+      "description": "This Module Needs CoffeeHouse API to work. so Join https://telegram.dog/IntellivoidDev and send #activateapi and follow instructions.",
       "required": false
     },
     "WEATHER_DEFCITY": {
@@ -163,28 +193,8 @@
     {
       "plan": "heroku-postgresql",
       "options": {
-        "version": "9.5"
+        "version": "12"
       }
-    }
-  ],
-  "buildpacks": [
-    {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-    },
-    {
-      "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
-    },
-    {
-      "url": "https://github.com/amivin/aria2-heroku"
-    },
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
-    },
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-chromedriver"
-    },
-    {
-      "url": "heroku/python"
     }
   ]
 }
