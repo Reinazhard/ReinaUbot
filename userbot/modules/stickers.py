@@ -80,7 +80,7 @@ async def kang(args):
             await args.edit("`Unsupported File!`")
             return
     else:
-        await args.edit("`Hey nigga, i can't kang that one...`")
+        await args.edit("`Hey koku-jin, i can't kang that one...`")
         return
 
     if photo:
