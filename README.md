@@ -5,7 +5,7 @@
 <h5 align="center"><a href="#how-to-host">How To Host</a> | <a href="#credits">Credits</a> | <a href="#license">License</a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Release the Kraken!</h2>
-<h5 align="center">pssst, this is way to cheat</h5>
+<h5 align="center">u ghey like him</h5>
 <p align="center"><a href="https://heroku.com/deploy"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Reynhard_Sinaga.jpg/220px-Reynhard_Sinaga.jpg"></a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Credits</h2>
