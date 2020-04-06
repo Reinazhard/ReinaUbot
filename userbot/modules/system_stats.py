@@ -125,6 +125,10 @@ async def amireallyalive(alive):
     await alive.edit("'    '（ • •）'           '\n"
 "┏━∪∪━━━━━━━━┓ \n"
 "┃  Okaerinasai  senchō      ┃\n"
+"┃  f"{verout}"              ┃\n"
+"┃ =  =   =   =  =  =        ┃\n"
+"┃  `Revision:               ┃\n"
+"┃ f"{revout}"               ┃\n"
 "┗━━━━━━━━━━━┛ \n")
 
 
