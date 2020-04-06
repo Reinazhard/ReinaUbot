@@ -127,8 +127,8 @@ async def amireallyalive(alive):
 "┃  Okaerinasai  senchō      ┃\n"
 "┃Telethon = {version.__version__}      ┃\n"
 "┃ =  =   =   =  =  =  ============      ┃\n"
-"┃Python = {python_version()}         ┃\n"
-"┃Hex = {DEFAULTUSER}              ┃\n"
+"┃Python = f"{python_version()}"         ┃\n"
+"┃Hex = f"{DEFAULTUSER}"              ┃\n"
 "┗━━━━━━━━━━━┛ \n")
 
 
