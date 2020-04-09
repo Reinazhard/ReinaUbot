@@ -208,9 +208,6 @@ async def _(event):
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))
               await conv.send_message(f'/{phone}')
               response = await response
-              Timeot = response[]
-              if Timeot:
-                  await event.edit("```Device not found```")
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
@@ -227,7 +224,6 @@ async def _(event):
             response = conv.wait_event(events.NewMessage(incoming=True,from_users=1111224224))            
             await conv.send_message('/list')
             response = await response
-            time.sleep(3)
         except YouBlockedUserError:
             await event.reply("```Unblock @ofoxr_bot plox```")
             return
