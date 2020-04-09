@@ -20,7 +20,7 @@ UNAPPROVED_MSG = (
     "`Welcome, You are a wonderful person with a wonderful view of life.`\n\n"
       "`Your companionship is always an opportunity But Sed This line is not for you who is a common person.So just tell why you are here ?`\n\n"
       "`Your message will be responded when my king have free time,Don't sit here whole day coz there are lots of pending messages😶,`\n\n\n"
-      "[Peace from King's Slave ✌️](https://telegra.ph/Hello-There-03-29)")
+      "[Peace from Captain's Aide ✌️](https://telegra.ph/Hello-There-03-29)")
 # =================================================================
 
 
@@ -69,7 +69,7 @@ async def permitpm(event):
 
                 if COUNT_PM[event.chat_id] > 4:
                     await event.respond(
-                        "`You were spamming my Mastor's PM, which I didn't like.`\n"
+                        "`You were spamming my Captain's PM, which I didn't like.`\n"
                         "`You have been BLOCKED and reported as SPAM, until further notice.`"
                     )
 
