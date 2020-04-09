@@ -126,7 +126,7 @@ async def amireallyalive(alive):
                      f"> `Telethon : v{version.__version__} `\n"
                      f"> `Python : v{python_version()} `\n"
                      "--------------------- \n"
-                     f"`Spell Status : {DEFAULTUSER}` \n"
+                     f"`Captain : {DEFAULTUSER}` \n"
                      "--------------------- \n")
 
 
