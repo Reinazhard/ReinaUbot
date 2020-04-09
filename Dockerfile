@@ -5,13 +5,11 @@ FROM alpine:edge
 # We have to uncomment Community repo for some packages
 #
 RUN sed -e 's;^#http\(.*\)/edge/community;http\1/edge/community;g' -i /etc/apk/repositories
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
 
 #
 # Installing Packages
 #
-RUN apk add --no-cache=true --update \
-    coreutils \
+RUN apk add --no-cache --update \
     bash \
     build-base \
     bzip2-dev \
@@ -20,9 +18,12 @@ RUN apk add --no-cache=true --update \
     gcc \
     g++ \
     git \
+    sudo \
     aria2 \
     util-linux \
     libevent \
+    chromium \
+    chromium-chromedriver \
     jpeg-dev \
     libffi-dev \
     libpq \
@@ -41,6 +42,7 @@ RUN apk add --no-cache=true --update \
     pv \
     jq \
     wget \
+    python \
     python3 \
     python3-dev \
     readline-dev \
@@ -48,14 +50,9 @@ RUN apk add --no-cache=true --update \
     ffmpeg \
     sqlite-dev \
     sudo \
-    chromium \
-    chromium-chromedriver \
     zlib-dev \
-    jpeg \
-    zip \
-    megatools \
-    nodejs \
-    freetype-dev
+    jpeg-dev \
+    python-dev
 
 
 RUN python3 -m ensurepip \
