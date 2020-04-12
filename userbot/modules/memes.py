@@ -258,6 +258,7 @@ UWUS = [
     "(♥_♥)",
     "*(^O^)*",
     "((+_+))",
+    "(⁄˘⁄ ⁄ ω⁄ ⁄ ˘⁄)♥",
 ]
 
 FACEREACTS = [
@@ -382,6 +383,7 @@ RUNS_STR = [
     "Why are all these people following me?",
     "Are the kids still chasing me?",
     "Running a marathon...there's an app for that.",
+    "im fast as fucc boi.",
 ]
 
 CHASE_STR = [
@@ -590,7 +592,7 @@ ITEMS_EN = [
 ]
 
 THROW_EN = [
-    "throws",
+    "Yeets",
     "flings",
     "chucks",
     "hurls",
@@ -709,11 +711,13 @@ ITEMS_Jutsu = [
 THROW_Jutsu = [
     "Futon Rasen Shuriken",
     "Shuriken",
+    "Bijuudama",
 ]
 
 HIT_Jutsu = [
     "Rasengan",
     "Chidori",
+    "Amaterasu",
 ]
 
 
