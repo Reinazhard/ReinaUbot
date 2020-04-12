@@ -691,15 +691,39 @@ HIT_ID = [
     "Memukuli",
 ]
 
-#Penambahan Baru  Menunggu @azrim untuk membuat list 
+WHERE_ID = ["di pipi", "di kepala", "di bokong", "di badan"]
 
-ANIME_ID = [
-       "Rasengan",
-       "Chidori",
-       "Edo Tensei",        
+
+SLAP_TEMPLATES_Jutsu = [
+    "Menyerang {victim} Menggunakan {hits}.",
+    "Menyerang {victim} Menggunakan {item}.",
+    "Melemparkan {throws} kepada {victim} .",
+    "Melemparkan {throws} {where} {victim}."
 ]
 
-WHERE_ID = ["di pipi", "di kepala", "di bokong", "di badan"]
+ITEMS_Jutsu = [
+     "KAA MEE HAA MEE HAA",
+     "Chibaku Tensei",
+]
+
+THROW_Jutsu = [
+    "Futon Rasen Shuriken",
+    "Shuriken",
+]
+
+HIT_Jutsu = [
+    "Rasengan",
+    "Chidori",
+]
+
+
+WHERE_Jutsu = ["Di Pipi", "Di Kepala", "Di Bokong", "Di Badan ,Di Pantat"]
+
+
+
+#"Gomu Gomu no Kong Gun" Kagak tau,
+#"Karyuu no Hokou" Kagak tau,
+
 
 # ===========================================
 
@@ -799,16 +823,21 @@ async def slap(replied_user, event):
        hit = choice(HIT_ID)
        throw = choice(THROW_ID)
        where = choice(WHERE_ID)
-       animes = choice(ANIME_ID)
+    elif slap_str == "jutsu":
+       temp = choice(SLAP_TEMPLATES_Jutsu)
+       item = choice(ITEMS_Jutsu)
+       hit = choice(HIT_Jutsu)
+       throw = choice(THROW_Jutsu)
+       where = choice(WHERE_Jutsu)
     else:
        temp = choice(SLAP_TEMPLATES_EN)
        item = choice(ITEMS_EN)
        hit = choice(HIT_EN)
        throw = choice(THROW_EN)
        where = choice(WHERE_EN)
-       
+
     caption = "..." + temp.format(
-        victim=slapped, item=item, hits=hit, throws=throw, where=where, anime=animes)
+        victim=slapped, item=item, hits=hit, throws=throw, where=where)
 
     return caption
 
@@ -1184,17 +1213,17 @@ async def scam(event):
     ]
     input_str = event.pattern_match.group(1)
     args = input_str.split()
-    if len(args) is 0:  # Let bot decide action and time
+    if len(args) == 0:  # Let bot decide action and time
         scam_action = choice(options)
         scam_time = randint(30, 60)
-    elif len(args) is 1:  # User decides time/action, bot decides the other.
+    elif len(args) == 1:  # User decides time/action, bot decides the other.
         try:
             scam_action = str(args[0]).lower()
             scam_time = randint(30, 60)
         except ValueError:
             scam_action = choice(options)
             scam_time = int(args[0])
-    elif len(args) is 2:  # User decides both action and time
+    elif len(args) == 2:  # User decides both action and time
         scam_action = str(args[0]).lower()
         scam_time = int(args[1])
     else:
@@ -1424,7 +1453,7 @@ CMD_HELP.update({
 \nUsage: UwU\
 \n\n.react\
 \nUsage: Make your userbot react to everything.\
-\n\n.slap <id/en>\
+\n\n.slap <id/en/jutsu>\
 \nUsage: reply to slap them with random objects !!\
 \n\n.cry\
 \nUsage: y u du dis, i cri.\
