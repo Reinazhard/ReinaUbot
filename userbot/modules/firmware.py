@@ -30,4 +30,5 @@ async def _(event):
 
 CMD_HELP.update({
 "Firmware":
-"\nUsage : Get lastest Firmware"
+"\nUsage : Get lastest Firmware"\
+})
