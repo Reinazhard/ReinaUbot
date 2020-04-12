@@ -15,7 +15,7 @@ async def _(event):
     firmware = f"firmware"
     chat = "@XiaomiGeeksBot"
     await event.edit("```Processing```")
-    async with bot.conversation(chat) as conv:
+    async with bot.conversation("@XiaomiGeeksBot") as conv:
           try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=774181428))
               await bot.send_message(f"/{firmware} {phone}")
