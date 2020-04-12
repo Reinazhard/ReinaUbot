@@ -17,8 +17,8 @@ async def _(event):
     await event.edit("```Processing```")
     async with bot.conversation("@XiaomiGeeksBot") as conv:
           try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=774181428))
               await conv.send_message(f'/{firmware} {link}')
-              await bot.send_message(chat, link)
               response = await response
           except YouBlockedUserError:
               await event.reply("```Unblock @ofoxr_bot plox```")
