@@ -29,5 +29,5 @@ async def _(event):
              await bot.forward_messages(event.chat_id, response.message)
 
 CMD_HELP.update({
-"Firmware";
+"Firmware":
 "\nUsage : Get lastest Firmware"
