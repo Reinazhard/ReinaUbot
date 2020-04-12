@@ -16,7 +16,7 @@ async def _(event):
     await event.edit("```Processing```")
     async with bot.conversation(chat) as conv:
           try:
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=424466890))
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=774181428))
               await bot.send_message(/firmware f"phone")
               response = await response
           except YouBlockedUserError:
