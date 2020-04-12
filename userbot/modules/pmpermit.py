@@ -17,10 +17,8 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = (
-    "`Welcome, You are a wonderful person with a wonderful view of life.`\n\n"
-      "`Your companionship is always an opportunity But Sed This line is not for you who is a common person.So just tell why you are here ?`\n\n"
-      "`Your message will be responded when my king have free time,Don't sit here whole day coz there are lots of pending messages😶,`\n\n\n"
-      "[Peace from Captain's Aide ✌️](https://telegra.ph/Hello-There-03-29)")
+    "Freeze !. This is USSR Enterprise, Stop Spam Or Ban !"\n
+      "[Kthxbye](https://telegra.ph/STOP-SPAM-OR-BAN-04-12")
 # =================================================================
 
 
