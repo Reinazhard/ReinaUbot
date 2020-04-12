@@ -29,6 +29,5 @@ async def _(event):
              await bot.forward_messages(event.chat_id, response.message)
 
 CMD_HELP.update({
-"nhentai":
-".nhentai <link / code> \
-\nUsage: view nhentai in telegra.ph XD\n"})
+"Firmware";
+"\nUsage : Get lastest Firmware"
