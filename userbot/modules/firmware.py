@@ -22,7 +22,7 @@ async def _(event):
           except YouBlockedUserError:
               await event.reply("```Unblock @XiaomiGeeksBot plox```")
               return
-          if response.text.startswith("**Could not find f"{phone}" requested information!**"):
+          if response.text.startswith("**Could not find f'{phone}' requested information!**"):
              await event.edit("```Devices not found```")
           else:
              await event.delete()
