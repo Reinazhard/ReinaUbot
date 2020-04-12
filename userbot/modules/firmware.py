@@ -12,6 +12,7 @@ async def _(event):
     if event.fwd_from:
         return
     phone = event.pattern_match.group(1)
+    firmware = f"firmware"
     chat = "@XiaomiGeeksBot"
     await event.edit("```Processing```")
     async with bot.conversation(chat) as conv:
