@@ -19,7 +19,6 @@ from userbot.events import register
 UNAPPROVED_MSG = (
     "`Freeze !. This is USSR Enterprise, Stop Spam Or Ban !`\n"
       "[Kthxbye](https://telegra.ph/STOP-SPAM-OR-BAN-04-12)"
-)
 # =================================================================
 
 
