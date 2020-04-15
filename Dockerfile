@@ -42,7 +42,6 @@ RUN apk add --no-cache --update \
     pv \
     jq \
     wget \
-    python \
     python3 \
     python3-dev \
     readline-dev \
@@ -52,7 +51,6 @@ RUN apk add --no-cache --update \
     sudo \
     zlib-dev \
     jpeg-dev \
-    python-dev
 
 
 RUN python3 -m ensurepip \
