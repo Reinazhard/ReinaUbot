@@ -135,8 +135,8 @@ async def _(event):
 
 CMD_HELP.update({
 "oprek":
-"For Xiaomeme devices only! \n
-.firmware (codename)\
+"For Xiaomeme devices only!\
+\n\n.firmware (codename)\
      \n\nUsage : Get lastest Firmware \n
 .pb (codename)\
      \n\nUsage : Get latest PBRP \n
