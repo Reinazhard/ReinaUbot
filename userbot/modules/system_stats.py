@@ -127,8 +127,8 @@ async def amireallyalive(alive):
                      f"> `Telethon : v{version.__version__} `\n"
                      f"> `Python : v{python_version()} `\n"
                      "--------------------- \n"
-                     f"`Captain : {DEFAULTUSER} \n"
-                     "--------------------- \n")
+                     f"`Captain : {DEFAULTUSER}` \n"
+                     "`---------------------` \n")
 
 
 @register(outgoing=True, pattern="^.aliveu")
