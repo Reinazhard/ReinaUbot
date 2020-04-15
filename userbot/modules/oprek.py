@@ -132,6 +132,27 @@ async def _(event):
           else:
              await event.delete()
              await bot.forward_messages(event.chat_id, response.message)
+                
+                
+@register(outgoing=True, pattern="^.of(?: |$)(.*)")
+async def _(event):
+    if event.fwd_from:
+        return
+    link = event.pattern_match.group(1)
+    chat = "@XiaomiGeeksBot"
+    ofox = f"of"
+    await event.edit("```Processing```")
+    async with bot.conversation("@XiaomiGeeksBot") as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=774181428))
+              await conv.send_message(f'/{oofox} {link}')
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Unblock @XiaomiGeeksBot plox```")
+              return
+          else:
+             await event.delete()
+             await bot.forward_messages(event.chat_id, response.message)
 
 CMD_HELP.update({
 "oprek":
@@ -145,4 +166,6 @@ CMD_HELP.update({
 \n\n.fastboot (codename)\
      \nUsage : Get latest fastboot MIUI\
 \n\n.recovery (codename)\
-     \nUsage : Get latest recovery MIUI"})
+     \nUsage : Get latest recovery MIUI\
+\n\n.of (codename)\
+     \nUsage : Get latest OFRP"})
