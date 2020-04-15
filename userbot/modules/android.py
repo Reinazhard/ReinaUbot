@@ -248,5 +248,4 @@ CMD_HELP.update({
 \n\n.ofox <codename>\
 \nUsage: Get Ofox for your device.\
 \n\n.ofoxlist\
-\nUsage: Get latest Ofox for your devices."\
-})
+\nUsage: Get latest Ofox for your devices."})
