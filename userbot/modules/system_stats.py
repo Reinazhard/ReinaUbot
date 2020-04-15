@@ -128,7 +128,7 @@ async def amireallyalive(alive):
                      f"> `Python : v{python_version()} `\n"
                      "--------------------- \n"
                      f"`Captain : {DEFAULTUSER}` \n"
-                     "`---------------------` \n")
+                     "---------------------")
 
 
 @register(outgoing=True, pattern="^.aliveu")
