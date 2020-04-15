@@ -8,11 +8,15 @@ import os
 import requests
 import asyncio
 
-from userbot.modules.upload_download import humanbytes
-from userbot import TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, bot
+from userbot.modules.misc.upload_download import humanbytes
+from userbot import (TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, bot)
 from userbot.events import register
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
+from telethon.tl.types import (DocumentAttributeSticker,
+                               InputMediaUploadedDocument, InputPeerNotifySettings,
+                               InputStickerSetID, InputStickerSetShortName,
+                               MessageMediaPhoto)
 
 
 @register(outgoing=True, pattern="^\.mmf(?: |$)(.*)")
@@ -117,6 +121,10 @@ async def silently_send_message(conv, text):
 
 
 CMD_HELP.update({
-    "memefy":
-    ".mmf texttop ; textbottom"
+    "memefy",
+    "Fun",
+    "Turn images into memes",
+    """
+    `.mmf` texttop ; textbottom
+    """
 })
