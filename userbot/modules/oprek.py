@@ -135,14 +135,14 @@ async def _(event):
 
 CMD_HELP.update({
 "oprek":
-"For Xiaomeme devices only!\
+"For Xiaomeme devices only!\n
 .firmware (codename)\
-     \n\nUsage : Get lastest Firmware\
+     \n\nUsage : Get lastest Firmware\n
 .pb (codename)\
-     \n\nUsage : Get latest PBRP\
+     \n\nUsage : Get latest PBRP\n
 .spec (codename)\
-     \n\nUsage : Get quick spec information about device\
+     \n\nUsage : Get quick spec information about device\n
 .fastboot (codename)\
-     \n\nUsage : Get latest fastboot MIUI\
+     \n\nUsage : Get latest fastboot MIUI\n
 .recovery (codename))\
      \n\nUsage : Get latest recovery MIUI"})
