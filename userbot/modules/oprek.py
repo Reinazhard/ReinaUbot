@@ -84,7 +84,7 @@ async def _(event):
               await conv.send_message(f'/{recovery} {link}')
               response = await response
           except YouBlockedUserError:
-              await event.reply("```Unblock @ofoxr_bot plox```")
+              await event.reply("```Unblock @XiaomiGeeksBot plox```")
               return
           else:
              await event.delete()
@@ -106,7 +106,7 @@ async def _(event):
               await conv.send_message(f'/{spec} {link}')
               response = await response
           except YouBlockedUserError:
-              await event.reply("```Unblock @ofoxr_bot plox```")
+              await event.reply("```Unblock @XiaomiGeeksBot plox```")
               return
           else:
              await event.delete()
@@ -127,7 +127,7 @@ async def _(event):
               await conv.send_message(f'/{pitch} {link}')
               response = await response
           except YouBlockedUserError:
-              await event.reply("```Unblock @ofoxr_bot plox```")
+              await event.reply("```Unblock @XiaomiGeeksBot plox```")
               return
           else:
              await event.delete()
