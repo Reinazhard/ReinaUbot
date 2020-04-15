@@ -123,4 +123,5 @@ async def silently_send_message(conv, text):
 CMD_HELP.update({
     "memefy":
     "\n.mmf texttop ; textbottom\
-     \nUsage : Text on picture\"})
+     \nUsage : Text on picture"
+})
