@@ -144,5 +144,5 @@ CMD_HELP.update({
      \nUsage : Get quick spec information about device\
 \n\n.fastboot (codename)\
      \nUsage : Get latest fastboot MIUI\
-\n\\n.recovery (codename)\
+\n\n.recovery (codename)\
      \nUsage : Get latest recovery MIUI"})
