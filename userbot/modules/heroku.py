@@ -10,11 +10,11 @@ import os
 import requests
 import math
 
-from userbot import CMD_HELP, HEROKU_APP_NAME, HEROKU_API_KEY
+from userbot import CMD_HELP, HEROKU_APPNAME, HEROKU_APIKEY
 from userbot.events import register
 from userbot.prettyjson import prettyjson
 
-Heroku = heroku3.from_key(HEROKU_API_KEY)
+Heroku = heroku3.from_key(HEROKU_APIKEY)
 heroku_api = "https://api.heroku.com"
 
 
@@ -24,8 +24,8 @@ async def variable(var):
         Manage most of ConfigVars setting, set new var, get current var,
         or delete var...
     """
-    if HEROKU_APP_NAME is not None:
-        app = Heroku.app(HEROKU_APP_NAME)
+    if HEROKU_APPNAME is not None:
+        app = Heroku.app(HEROKU_APPNAME)
     else:
         return await var.edit("`[HEROKU]:"
                               "\nPlease setup your` **HEROKU_APP_NAME**")
@@ -103,7 +103,7 @@ async def dyno_usage(dyno):
     user_id = Heroku.account().id
     headers = {
      'User-Agent': useragent,
-     'Authorization': f'Bearer {HEROKU_API_KEY}',
+     'Authorization': f'Bearer {HEROKU_APIKEY}',
      'Accept': 'application/vnd.heroku+json; version=3.account-quotas',
     }
     path = "/accounts/" + user_id + "/actions/get-quota"
@@ -138,7 +138,7 @@ async def dyno_usage(dyno):
     await asyncio.sleep(1.5)
 
     return await dyno.edit("**Dyno Usage**:\n\n"
-                           f" -> `Dyno usage for`  **{HEROKU_APP_NAME}**:\n"
+                           f" -> `Dyno usage for`  **{HEROKU_APPNAME}**:\n"
                            f"     •  `{AppHours}`**h**  `{AppMinutes}`**m**  "
                            f"**|**  [`{AppPercentage}`**%**]\n\n"
                            " -> `Dyno hours quota remaining this month`:\n"
