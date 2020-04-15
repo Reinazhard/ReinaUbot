@@ -57,7 +57,6 @@ RUN apk add --no-cache=true --update \
     freetype-dev
 
 
-
 RUN python3 -m ensurepip \
     && pip3 install --upgrade pip setuptools \
     && rm -r /usr/lib/python*/ensurepip && \
