@@ -145,5 +145,4 @@ CMD_HELP.update({
 .fastboot (codename)\
      \n\nUsage : Get latest fastboot MIUI\
 .recovery (codename))\
-     \n\nUsage : Get latest recovery MIUI\
-})
+     \n\nUsage : Get latest recovery MIUI"})
