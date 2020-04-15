@@ -138,11 +138,11 @@ CMD_HELP.update({
 "For Xiaomeme devices only!\
 \n\n.firmware (codename)\
      \nUsage : Get lastest Firmware\
-\n.pb (codename)\
+\n\n.pb (codename)\
      \nUsage : Get latest PBRP\
-\n.spec (codename)\
+\n\n.spec (codename)\
      \nUsage : Get quick spec information about device\
-\n.fastboot (codename)\
+\n\n.fastboot (codename)\
      \nUsage : Get latest fastboot MIUI\
-\n.recovery (codename)\
+\n\\n.recovery (codename)\
      \nUsage : Get latest recovery MIUI"})
