@@ -23,7 +23,7 @@ async def hazmat(event):
     async with bot.conversation("@hazmat_suit_bot") as conv:
           try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=905164246))
-              await bot.send_message(chat, link)
+              await bot.forward_messages(chat, reply_message)
               response = await response
           except YouBlockedUserError:
               await event.reply("```Unblock @hazmat_suit_bot plox```")
