@@ -128,7 +128,7 @@ def register(**args):
                     if LOGSPAMMER:
                         await check.respond("`Duh ajg ngecrash.`")
                         time.sleep(3)
-                        await check.respon.delete()
+                        await check.respond.delete()
                         
                         
 
