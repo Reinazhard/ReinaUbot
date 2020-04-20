@@ -5,6 +5,7 @@ FROM alpine:edge
 # We have to uncomment Community repo for some packages
 #
 RUN sed -e 's;^#http\(.*\)/edge/community;http\1/edge/community;g' -i /etc/apk/repositories
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
 
 #
 # Installing Packages
@@ -58,6 +59,7 @@ RUN apk add --no-cache=true --update \
     freetype-dev
 
 
+
 RUN python3 -m ensurepip \
     && pip3 install --upgrade pip setuptools \
     && rm -r /usr/lib/python*/ensurepip && \
@@ -68,7 +70,7 @@ RUN python3 -m ensurepip \
 #
 # Clone repo and prepare working directory
 #
-RUN git clone -b master https://github.com/Reinazhard/ReinaUbot /root/userbot
+RUN git clone -b sql-extended https://github.com/aone-id/aone-kangbot /root/userbot
 RUN mkdir /root/userbot/bin/
 WORKDIR /root/userbot/
 
