@@ -1,6 +1,6 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
 # The entire source code is OSSRPL except 'screencapture' which is MPL
@@ -8,15 +8,18 @@
 
 import io
 import traceback
+
 from re import match
 from selenium import webdriver
 from asyncio import sleep
 from selenium.webdriver.chrome.options import Options
+
 from userbot.events import register
-from userbot import GOOGLE_CHROME_BIN, CHROME_DRIVER, CMD_HELP
+from userbot import CMD_HELP
+from userbot import GOOGLE_CHROME_BIN, CHROME_DRIVER
 
 
-@register(pattern=r"^.ss (.*)", outgoing=True)
+@register(pattern=r"^\.ss (.*)", outgoing=True)
 async def capture(url):
     """ For .ss command, capture a website's screenshot and send the photo. """
     await url.edit("`Processing ...`")
@@ -68,8 +71,7 @@ async def capture(url):
 
 
 CMD_HELP.update({
-    "ss":
-    ".ss <url>\
-    \nUsage: Takes a screenshot of a website and sends the screenshot.\
-    \nExample of a valid URL : `https://www.google.com`"
+    "screencapture",
+    "`.ss` <url>\
+    \nExample of a valid URL: `https://www.google.com`"
 })
