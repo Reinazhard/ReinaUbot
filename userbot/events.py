@@ -126,12 +126,9 @@ def register(**args):
                     file.close()
 
                     if LOGSPAMMER:
-                        await check.respond("`Duh ajg ngecrash.`")
-                        time.sleep(3)
-                        await check.respond.delete()
+                        await check.respond("`KAPAL OLENG KAPTEN!.`")
+                       
                         
-                        
-
                     await check.client.send_file(send_to,
                                                  "error.log",
                                                  caption=text)
