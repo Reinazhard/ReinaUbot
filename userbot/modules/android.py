@@ -212,7 +212,8 @@ async def _(event):
               await event.reply("```Unblock @ofoxr_bot plox```")
               return
           else:   
-             await event.delete()   
+             await event.delete()  
+             await asyncio.sleep(5)
              await bot.forward_messages(event.chat_id, response.message)
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
@@ -228,7 +229,8 @@ async def _(event):
             await event.reply("```Unblock @ofoxr_bot plox```")
             return
         else: 
-           await event.delete()   
+           await event.delete()
+           await asyncio.sleep(5)
            await bot.forward_messages(event.chat_id, response.message)
            
 
