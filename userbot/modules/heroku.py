@@ -7,22 +7,22 @@
 import heroku3
 import asyncio
 
-from userbot import CMD_HELP, LOGS, HEROKU_APP_NAME, HEROKU_API_KEY, BOTLOG, BOTLOG_CHATID
+from userbot import CMD_HELP, LOGS, HEROKU_APPNAME, HEROKU_APIKEY, BOTLOG, BOTLOG_CHATID
 from userbot.events import register
 
-heroku_conn = heroku3.from_key(HEROKU_API_KEY)
+heroku_conn = heroku3.from_key(HEROKU_APIKEY)
 
 @register(pattern="^.hlist(?: |$)(.*)", outgoing=True)
 async def heroku_list(list):
     """ Getting Information From Heroku Account """
-    if HEROKU_API_KEY is not None:
+    if HEROKU_APIKEY is not None:
         heroku_str = list.pattern_match.group(1)
         if heroku_str == "app":
             applist = str(heroku_conn.apps(order_by='id'))
             plist = applist.replace("[<app '", "").replace("<app '", "").replace("'>,", "\n\n").replace("'>]", "")
             await list.edit(f"**List App on Your Account:**\n\n`{plist}`")
         elif heroku_str == "worker":
-            if HEROKU_APP_NAME is not None:
+            if HEROKU_APPNAME is not None:
                 app = heroku_conn.apps()[HEROKU_APP_NAME]
                 dynolist = str(app.dynos(order_by='id'))
                 dlist = dynolist.replace("[<Dyno '", "").replace("<Dyno '", "").replace("'>,", "\n\n").replace("'>]", "")
@@ -30,28 +30,28 @@ async def heroku_list(list):
             else:
                 await list.edit("Please setup your **HEROKU_APP_NAME** Config Variable")
         elif heroku_str == "var":
-            if HEROKU_APP_NAME is not None:
-                app = heroku_conn.apps()[HEROKU_APP_NAME]
+            if HEROKU_APPNAME is not None:
+                app = heroku_conn.apps()[HEROKU_APPNAME]
                 config = str(app.config())
                 vlist = config.replace(",", "\n\n").replace("'", "`").replace("{", "").replace("}", "")
                 if BOTLOG:
                     await list.edit(f"List of `Config Variable` has been sent to your `BOTLOG Group`")
-                    await list.client.send_message(BOTLOG_CHATID, (f"**List Config Variable on Your {HEROKU_APP_NAME}:**\n\n{vlist}"))
+                    await list.client.send_message(BOTLOG_CHATID, (f"**List Config Variable on Your {HEROKU_APPNAME}:**\n\n{vlist}"))
                 else:
                     await list.edit(f"Sorry, Can't send `Config Variable` to Public.\nPlease setup your **BOTLOG Group**")
             else:
-                await list.edit("Please setup your **HEROKU_APP_NAME** Config Variable")
+                await list.edit("Please setup your **HEROKU_APPNAME** Config Variable")
         else:
             await list.edit("Please enter valid command\nSee `.help heroku`")
     else:
-        await list.edit("Please setup your **HEROKU_API_KEY** Config Variable")
+        await list.edit("Please setup your **HEROKU_APIKEY** Config Variable")
 
 #created by Adek Maulana
 @register(outgoing=True, pattern=r"^.(set|del) var(?: |$)(.*)")
 async def variable(var):
     """ Manage most of ConfigVars setting, set new var, or delete var... """
-    if HEROKU_APP_NAME is not None:
-        app = heroku_conn.app(HEROKU_APP_NAME)
+    if HEROKU_APPNAME is not None:
+        app = heroku_conn.app(HEROKU_APPNAME)
     else:
         return await var.edit("`[HEROKU]:"
                               "\nPlease setup your` **HEROKU_APP_NAME**")
