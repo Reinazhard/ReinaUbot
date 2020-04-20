@@ -7,7 +7,7 @@ from userbot import CMD_HELP, SCREEN_SHOT_LAYER_ACCESS_KEY
 from userbot.events import register
 
 
-@register(outgoing=True, pattern="^.scr(?: |$)(.*)")
+@register(outgoing=True, pattern="^.capscr(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -47,6 +47,6 @@ async def _(event):
         
 CMD_HELP.update({
     "screencap":
-    ".scr <url> \
+    ".capscr <url> \
     \nUsage get screenshot the url"
 })
