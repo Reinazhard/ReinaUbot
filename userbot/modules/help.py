@@ -25,4 +25,4 @@ async def help(event):
         for i in CMD_HELP:
             string += "`" + str(i)
             string += "`\n"
-        await event.reply(string)
+        await event.edit(string)
