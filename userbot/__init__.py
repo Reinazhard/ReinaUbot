@@ -161,6 +161,8 @@ LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
 QUOTES_API_TOKEN = os.environ.get("QUOTES_API_TOKEN", None)
 #TELEGRapH
 TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", None)
+#TG BOT USERNAME
+TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
 
 # Setting Up CloudMail.ru and MEGA.nz extractor binaries,
 # and giving them correct perms to work properly.
