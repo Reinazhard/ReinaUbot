@@ -32,6 +32,6 @@ async def _(event):
             
             
 CMD_HELP.update({
-    'hacc':
+    'hacchi':
     ".hacc \
     \nUsage : LoL"})
