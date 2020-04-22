@@ -3,7 +3,7 @@
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 
-from userbot import CMD_HELP, TG_BOT_USER_NAME_BF_HER, bot
+from userbot import CMD_HELP, TG_BOT_USER_NAME_BF_HER
 from userbot.events import register
 
 
