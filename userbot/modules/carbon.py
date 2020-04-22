@@ -69,6 +69,6 @@ async def carbon_api(e):
    
    
    CMD_HELP.update({
-    "crbn":
-    ".crbn \
+    "carbon":
+    ".carbon \
     \nUsage : carbonizing a text"})
