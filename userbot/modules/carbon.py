@@ -11,7 +11,7 @@ import os
 from userbot import CMD_HELP, CHROME_DRIVER, GOOGLE_CHROME_BIN
 from userbot.events import register
 
-@register(pattern="^.crbn(?: |$)(.*)", outgoing=True) 
+@register(pattern="^.carbon(?: |$)(.*)", outgoing=True) 
 async def carbon_api(e):
  if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
    """ A Wrapper for carbon.now.sh """
@@ -58,7 +58,7 @@ async def carbon_api(e):
    await e.client.send_file(
          e.chat_id,
          file,
-         caption="Carbon by [@NeoMatrix90](https://t.me/NeoMatrix90)",
+         caption="Here you go Captain !",
          force_document=True,
          reply_to=e.message.reply_to_msg_id,
          )
