@@ -8,7 +8,8 @@ from urllib.error import HTTPError
 from time import sleep
 import asyncio
 import os
-from userbot import register, CMD_HELP
+from userbot import CMD_HELP
+from userbot.events import register
 
 @register(pattern="^.crbn(?: |$)(.*)", outgoing=True) 
 async def carbon_api(e):
