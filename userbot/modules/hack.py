@@ -5,11 +5,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 import asyncio
 
-
-
-
-
-@register(outgoing=True, pattern="^.hack (.*)")
+@register(outgoing=True, pattern="^.hacc(?: |$)(.*)")
 
 async def _(event):
 
@@ -50,6 +46,6 @@ async def _(event):
             
             
 CMD_HELP.update({
-    "hacc":
-    ".hack \
+    'hacc':
+    ".hacc \
     \nUsage : LoL"})
