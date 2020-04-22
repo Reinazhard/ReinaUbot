@@ -48,3 +48,5 @@ lyricsgenius
 telegraph
 PyGithub
 python-dateutil
+redis>=3.3.10	
+hiredis>=1.0.0
