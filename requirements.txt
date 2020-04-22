@@ -40,6 +40,7 @@ speedtest-cli>=2.0.2
 sqlalchemy>=1.2
 telethon>=1.10.6
 telethon-session-sqlalchemy>=0.2.6
+telegram
 urbandict>=0.5
 wikipedia>=1.4.0
 coffeehouse>=2.1.0
