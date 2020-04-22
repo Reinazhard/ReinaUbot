@@ -6,7 +6,6 @@ from userbot.events import register
 import asyncio
 
 @register(outgoing=True, pattern="^.hacc(?: |$)(.*)")
-
 async def _(event):
     if event.fwd_from:
         return
