@@ -44,11 +44,11 @@ async def carbon_api(e):
    params = {'cmd': 'Page.setDownloadBehavior', 'params': {'behavior': 'allow', 'downloadPath': download_path}}
    command_result = driver.execute("send_command", params)
 
+   await e.edit("⬛⬛⬛⬜⬜ 50%")   
    driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
    sleep(5) # this might take a bit.
    #driver.find_element_by_xpath("//button[contains(text(),'4x')]").click()
    #sleep(5)
-   await e.edit("⬛⬛⬛⬜⬜ 50%")
    #driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
    #sleep(5) #Waiting for downloading
 
