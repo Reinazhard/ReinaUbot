@@ -8,7 +8,7 @@ from urllib.error import HTTPError
 from time import sleep
 import asyncio
 import os
-from userbot import CMD_HELP
+from userbot import CMD_HELP, CHROME_DRIVER, GOOGLE_CHROME_BIN
 from userbot.events import register
 
 @register(pattern="^.crbn(?: |$)(.*)", outgoing=True) 
@@ -37,7 +37,7 @@ async def carbon_api(e):
    chrome_options.add_experimental_option('prefs', prefs)
    await e.edit("⬛⬛⬜⬜⬜ 30%")
 
-   driver = webdriver.Chrome(executable_path=Config.CHROME_DRIVER, options=chrome_options)
+   driver = webdriver.Chrome(executable_path=CHROME_DRIVER, options=chrome_options)
    driver.get(url)
    download_path = './'
    driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
