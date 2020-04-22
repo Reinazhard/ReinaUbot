@@ -27,9 +27,9 @@ async def _(event):
             "`Hacking... 84%\n█████████████████████▒▒▒▒ `",
             "`Hacking... 100%\n█████████HACKED███████████ `",
             "`Targeted Account Hacked...\n\nPay 6969$ To this Nigga @eve_enryu To Remove This Hack`"]
-for i in animation_ttl:
-await asyncio.sleep(animation_interval)
-await event.edit(animation_chars[i % 11])
+    for i in animation_ttl:
+        await asyncio.sleep(animation_interval)
+        await event.edit(animation_chars[i % 11])
             
             
 CMD_HELP.update({
