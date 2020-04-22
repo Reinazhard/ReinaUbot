@@ -5,7 +5,7 @@
 #
 """ Userbot help command """
 
-from userbot import CMD_HELP, TG_BOT_TOKEN_BF_HER
+from userbot import CMD_HELP, TG_BOT_USER_NAME_BF_HER
 from userbot.events import register
 
 
@@ -16,21 +16,21 @@ async def cmd_list(event):
         input_str = event.pattern_match.group(1)
         if tgbotusername is None or input_str == "text":
             string = ""
-            for i in CMD_LIST:
+            for i in CMD_HELP:
                 string += "ℹ️ " + i + "\n"
-                for iter_list in CMD_LIST[i]:
+                for iter_list in CMD_HELP[i]:
                     string += "    `" + str(iter_list) + "`"
                     string += "\n"
                 string += "\n"
             if len(string) > 4095:
-                await borg.send_message(event.chat_id, "Do .help cmd")
+                await bot.send_message(event.chat_id, "Do .help cmd")
                 await asyncio.sleep(5)
             else:
                 await event.edit(string)
         elif input_str:
-            if input_str in CMD_LIST:
+            if input_str in CMD_HELP:
                 string = "Commands found in {}:\n".format(input_str)
-                for i in CMD_LIST[input_str]:
+                for i in CMD_HELP[input_str]:
                     string += "    " + i
                     string += "\n"
                 await event.edit(string)
