@@ -6,7 +6,7 @@
 """ Userbot help command """
 import telegram
 
-from userbot import CMD_HELP, TG_BOT_USER_NAME_BF_HER
+from userbot import CMD_HELP, TG_BOT_USER_NAME_BF_HER, bot
 from userbot.events import register
 
 
@@ -41,7 +41,7 @@ async def cmd_list(event):
             help_string = """Userbot Helper.. Provided by @A_Dark_Princ3 \n[Check out this dope af website](https://www.moddingunited.xyz/) \n
 `Userbot Helper to reveal all the commands`\n__Do .help plugin_name for commands, in case popup doesn't appear.__"""
             bot = tgbotusername
-            results = await telegram.InlineQuery(tgbotusername, help_string)
+            results = await bot.inline_query(tgbotusername, help_string)
             await results[0].click(
                 event.chat_id,
                 reply_to=event.reply_to_msg_id,
