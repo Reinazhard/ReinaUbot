@@ -1,7 +1,7 @@
 #Kanged from X-tra TG Userbot by @eve_enryu
 from telethon import events
 import asyncio
-from userbot.events import regitster
+from userbot.events import register
 
 
 @register(outgoing=True, pattern="^.schd")
