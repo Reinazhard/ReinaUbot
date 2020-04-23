@@ -19,19 +19,7 @@ async def _(event):
     if event.fwd_from:
 
         return
-
-    animation_interval = 2
-    animation_ttl = range(0, 7)
-    animation_chars = [
-                "Typing.",
-                "Typing..",
-                "Typing...",
-                "Typing.",
-                "Typing..",
-                "Typing..."],
-    for i in animation_ttl:
-         await asyncio.sleep(animation_interval)
-         await event.edit(animation_chars[i % 7])
+    await event.edit("Typing...")
 
     await asyncio.sleep(3)
 
