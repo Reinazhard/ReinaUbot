@@ -31,13 +31,8 @@ async def hazmat(event):
           else:
              file = response
              await event.delete()
-             await event.client.send_file(
-                            event.chat_id,
-                            file,
-                            caption="Here you go Captain !",
-                            force_document=True,
-                            reply_to=event.message.reply_to_msg_id,
-                            )
+             await event.client.send_message(event.chat_id, response.message, reply_to=event.message.reply_to_msg_id)
+                            
 CMD_HELP.update({
 "hazmat":
 ".hazmat \
