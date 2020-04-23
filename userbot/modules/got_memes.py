@@ -151,7 +151,8 @@ async def _(event):
       
       
       
-      CMD_HELP.update({
-            "gotm"
-            ".gotm \
-            \nUsage : Ha! I got an Idea!"})
+ 
+CMD_HELP.update({
+        "gotm"
+        ".gotm \
+        \nUsage : Ha! I got an Idea!"})
