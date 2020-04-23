@@ -2,6 +2,7 @@
 from telethon import events
 import asyncio
 from userbot.events import register
+from userbot import CMD_HELP
 
 
 @register(outgoing=True, pattern="^.schd")
@@ -23,3 +24,9 @@ async def _(event):
         await event.respond(message)
     else:
         await event.edit(message)
+
+        
+CMD_HELP.update({
+        "sched":
+        ".schd <seconds> ; <message> \
+        \nUsage : ¯\_(ツ)_/¯"})
