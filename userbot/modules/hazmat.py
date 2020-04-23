@@ -36,7 +36,7 @@ async def hazmat(event):
                             file,
                             caption="Here you go Captain !",
                             force_document=True,
-                            reply_to=e.message.reply_to_msg_id,
+                            reply_to=event.message.reply_to_msg_id,
                             )
 CMD_HELP.update({
 "hazmat":
