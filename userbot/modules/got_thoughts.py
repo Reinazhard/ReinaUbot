@@ -9,6 +9,7 @@ import sys
 
 import random
 from userbot.events import register
+from userbot import CMD_HELP
 
 
 
@@ -184,3 +185,10 @@ async def _(event):
     if x==40:
 
         await event.edit("`\"I wish I was the monster you think I am!\"`")
+        
+        
+        
+CMD_HELP.update({
+        "gott":
+        ".gott \
+        \nUsage : ¯\_(ツ)_/¯"})
