@@ -1,8 +1,5 @@
-# BY @Deonnn
-""" Game of Thrones Dialogues That You Can Use In Everyday Situations
- command .gotm
- by @Deonnn
-"""
+#kanged from X-tra TG userbot by @eve_enryu
+
 
 from telethon import events
 
@@ -13,7 +10,8 @@ import os
 import sys
 
 import random
-from userbot.events import register    
+from userbot.events import register  
+from userbot import CMD_HELP
 
 
 
@@ -150,3 +148,10 @@ async def _(event):
     if x==30:
 
         await event.edit("[For that friend of yours who does not like loud music and head banging...](https://telegra.ph/file/acbce070d3c52b921b2bd.jpg)", link_preview=True)
+      
+      
+      
+      CMD_HELP.update({
+            "gotm"
+            ".gotm \
+            \nUsage : Ha! I got an Idea!"})
