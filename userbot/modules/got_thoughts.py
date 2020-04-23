@@ -8,6 +8,7 @@ import os
 import sys
 
 import random
+from userbot.events import register
 
 
 
@@ -28,11 +29,9 @@ async def _(event):
                 "Typing."
                 "Typing.."
                 "Typing..."]
-            for i in animation_ttl:
-
-            await asyncio.sleep(animation_interval)
-
-            await event.edit(animation_chars[i % 6])
+    for i in animation_ttl:
+         await asyncio.sleep(animation_interval)
+         await event.edit(animation_chars[i % 6])
 
     await asyncio.sleep(3)
 
