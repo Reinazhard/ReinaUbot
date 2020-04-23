@@ -30,7 +30,7 @@ async def hazmat(event):
               return
           else:
              await event.delete()
-            await event.client.send_file(
+             await event.client.send_file(
                             e.chat_id,
                             file,
                             caption="Here you go Captain !",
