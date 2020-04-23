@@ -21,7 +21,7 @@ async def _(event):
         return
 
     animation_interval = 2
-    animation_ttl = range(0, 6)
+    animation_ttl = range(0, 7)
     animation_chars = [
                 "Typing.",
                 "Typing..",
@@ -31,7 +31,7 @@ async def _(event):
                 "Typing..."],
     for i in animation_ttl:
          await asyncio.sleep(animation_interval)
-         await event.edit(animation_chars[i % 6])
+         await event.edit(animation_chars[i % 7])
 
     await asyncio.sleep(3)
 
