@@ -209,7 +209,11 @@ async def _(event):
               await conv.send_message(f'/{phone}')
               response = await response
               
-              if not response:
+              def countdown(t):
+                while t > 5:
+                  print(t)
+                  t += 1
+                  time.sleep(1)
                   await event.edit("Device not found")
               
           except YouBlockedUserError: 
