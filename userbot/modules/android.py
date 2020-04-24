@@ -209,7 +209,7 @@ async def _(event):
               await conv.send_message(f'/{phone}')
               response = await response
               
-              def countdown(t):
+              async def countdown(t):
                 while t > 5:
                   print(t)
                   t += 1
