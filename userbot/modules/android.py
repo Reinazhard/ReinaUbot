@@ -209,11 +209,7 @@ async def _(event):
               await conv.send_message(f'/{phone}')
               response = await response
               
-              async def countdown(t):
-                while t > 5:
-                  print(t)
-                  t += 1
-                  time.sleep(1)
+              if response == ():
                   await event.edit("Device not found")
               
           except YouBlockedUserError: 
@@ -221,7 +217,7 @@ async def _(event):
               return
           else:   
              await event.delete()  
-             await bot.forward_messages(event.chat_id, response.message)
+             await bot.forward_messages(event.chat_id, response.message, reply_to=event.message.reply_to_msg_id)
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
 async def _(event):
