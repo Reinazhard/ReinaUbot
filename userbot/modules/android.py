@@ -216,8 +216,9 @@ async def _(event):
                       sec += 1
                       print(str(Sec))
                       time.sleep(1)
-                      if sec == 3
-                      await event.edit("Couldn't find the device")
+                      if sec == 3:
+                        sec = 0
+                        await event.edit("Couldn't find the device")
               
           except YouBlockedUserError: 
               await event.reply("```Unblock @ofoxr_bot plox```")
