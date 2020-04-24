@@ -217,7 +217,6 @@ async def _(event):
               return
           else:   
              await event.delete()  
-             await asyncio.sleep(5)
              await bot.forward_messages(event.chat_id, response.message)
 
 @register(outgoing=True, pattern="^.ofoxlist(?: |$)(.*)")
