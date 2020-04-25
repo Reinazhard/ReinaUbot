@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
@@ -230,6 +231,8 @@ CMD_HELP.update({
 >>>>>>> 6624962... fix new deepfry
 =======
 =======
+=======
+>>>>>>> 6624962... fix new deepfry
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
@@ -311,5 +314,9 @@ CMD_HELP.update({
     "\nUsage: deepfry image/sticker from the reply."
     "\n@image_deepfrybot"
 })
+<<<<<<< HEAD
 >>>>>>> ec8d76c4... Modules: Publish new deepfryer module
 >>>>>>> d4aa338... add new deepfry
+=======
+
+>>>>>>> 6624962... fix new deepfry
