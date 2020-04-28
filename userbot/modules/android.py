@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
@@ -453,4 +453,4 @@ CMD_HELP.update({
 \n\n.twrp <codename>\
 \nUsage: Get latest twrp download for android device."
 })
->>>>>>> 65d98e5... Android: Fixed devices .json error
+
