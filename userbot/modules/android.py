@@ -255,7 +255,7 @@ CMD_HELP.update({
 \nUsage: Get Ofox for your device.\
 \n\n.ofoxlist\
 \nUsage: Get latest Ofox for your devices."})
-=======
+
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
