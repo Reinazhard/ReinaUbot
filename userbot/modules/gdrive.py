@@ -46,7 +46,7 @@ from userbot.modules.aria import aria2, check_metadata
 #                          STATIC                             #
 # =========================================================== #
 G_DRIVE_DATA = G_DRIVE_AUTH_TOKEN_DATA
-G_DRIVE_FOLDER_ID
+G_DRIVE_FOLDER_ID = GDRIVE_FOLDER_ID
 GOOGLE_AUTH_URI = "https://accounts.google.com/o/oauth2/auth"
 GOOGLE_TOKEN_URI = "https://oauth2.googleapis.com/token"
 SCOPES = [
