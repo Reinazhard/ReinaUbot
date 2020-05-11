@@ -45,7 +45,7 @@ if 1 == 1:
     config = dict({"api_url": "http://api.antiddos.systems",
                                           "username_colors": ["#fb6169", "#faa357", "#b48bf2", "#85de85",
                                                               "#62d4e3", "#65bdf3", "#ff5694"],
-                                          "default_username_color": "#b48bf2"})
+                                          "default_username_color": "#f98e1d"})
 
     @register(outgoing=True, pattern="^.pch(?: |$)(.*)")
     async def quotecmd(message):  # noqa: C901
