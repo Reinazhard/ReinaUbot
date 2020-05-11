@@ -623,6 +623,7 @@ THROW_EN = [
 ]
 
 HIT_EN = [
+    "yeets"
     "hits",
     "whacks",
     "slaps",
@@ -662,7 +663,7 @@ ITEMS_ID = [
     "Raket Nyamuk",
     "Kaca",
     "Buku",
-    "Ringgis",
+    "Linggis",
     "Telur",
     "Jarum",
     "Monitor Tabung",
@@ -709,12 +710,14 @@ ITEMS_ID = [
 THROW_ID = [
     "Melempar",
     "Melemparkan",
+    "Mematak",
 ]
 
 HIT_ID = [
     "Memukul",
     "melemparkan",
     "Memukuli",
+    "Membogem",
 ]
 
 WHERE_ID = ["di pipi", "di kepala", "di bokong", "di badan"]
@@ -730,6 +733,7 @@ SLAP_TEMPLATES_Jutsu = [
 ITEMS_Jutsu = [
      "KAA MEE HAA MEE HAA",
      "Chibaku Tensei",
+     "Amaterasu",
 ]
 
 THROW_Jutsu = [
