@@ -37,7 +37,7 @@ from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
 
 from userbot import (
     G_DRIVE_AUTH_TOKEN_DATA, G_DRIVE_CLIENT_ID, G_DRIVE_CLIENT_SECRET,
-    G_DRIVE_FOLDER_ID, BOTLOG_CHATID, TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, LOGS,
+    GDRIVE_FOLDER_ID, BOTLOG_CHATID, TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, LOGS,
 )
 from userbot.events import register
 from userbot.modules.upload_download import humanbytes, time_formatter
