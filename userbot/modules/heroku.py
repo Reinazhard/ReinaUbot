@@ -13,8 +13,11 @@ import heroku3
 import requests
 import math
 
-from userbot import (CMD_HELP, HEROKU_APP_NAME, HEROKU_API_KEY, BOTLOG, BOTLOG_CHATID)
+from userbot import (CMD_HELP, HEROKU_APPNAME, HEROKU_APIKEY, BOTLOG, BOTLOG_CHATID)
 from userbot.events import register
+
+HEROKU_APP_NAME = HEROKU_APPNAME
+HEROKU_API_KEY = HEROKU_APIKEY
 
 heroku_api = "https://api.heroku.com"
 if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
