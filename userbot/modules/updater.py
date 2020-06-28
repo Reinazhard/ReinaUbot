@@ -15,7 +15,7 @@ import sys
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from userbot import (BOTLOG, BOTLOG_CHATID, CMD_HELP, HEROKU_APIKEY, HEROKU_APPNAME, UPSTREAM_REPO_URL)
+from userbot import (BOTLOG, BOTLOG_CHATID, CMD_HELP, HEROKU_APIKEY, HEROKU_APPNAME, UPSTREAM_REPO_URL, UPSTREAM_REPO_BRANCH)
 from userbot.events import register
 
 requirements_path = path.join(
@@ -150,7 +150,7 @@ async def upstream(event):
 
     ac_br = repo.active_branch.name
     BRANCH_REPO = master
-    if ac_br != BRANCH_REPO:
+    if ac_br != UPSTREAM_REPO_BRANCH:
         await event.edit(
             '**[UPDATER]:**\n'
             f'`Looks like you are using your own custom branch ({ac_br}). '
