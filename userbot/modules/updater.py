@@ -149,7 +149,8 @@ async def upstream(event):
         repo.heads.master.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != master:
+    BRANCH_REPO = master
+    if ac_br != BRANCH_REPO:
         await event.edit(
             '**[UPDATER]:**\n'
             f'`Looks like you are using your own custom branch ({ac_br}). '
